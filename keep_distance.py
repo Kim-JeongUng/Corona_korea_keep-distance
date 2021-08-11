@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
+import jenan
+import coronaNow
 # 웹 크롤링
 webpage = requests.get("http://ncov.mohw.go.kr/regSocdisBoardView.do?brdId=6&brdGubun=68&ncvContSeq=495")
 soup = BeautifulSoup(webpage.content, "html.parser")
@@ -50,6 +52,7 @@ def junsu(level):
         print("코인노래방 22시 이후 운영제한")
         print("PC방 22시 이후 운영제한")
         print("헬스장 22시 이후 운영제한")
+    print()
 
 
 # 전체지역 코로나 단계 출력
@@ -77,11 +80,15 @@ while 1:
         if area_level[i].find("(" + my_area) != -1:
             print(my_area, "지역은", i + 1, "단계 입니다.")
             junsu(i + 1)
+            jenan.jenan_area(my_area)
+            coronaNow.CovidArea(my_area)
             break
 
         elif area_level[i].find(", " + my_area) != -1:
             print(my_area, "지역은", i + 1, "단계 입니다.")
             junsu(i + 1)
+            jenan.jenan_area(my_area)
+            coronaNow.CovidArea(my_area)
             break
 
         elif i == len(area_level) - 1:
@@ -97,9 +104,13 @@ while 1:
                     if area_level[j].find("(" + my_area) != -1:
                         print(my_area, "지역은", j + 1, "단계 입니다.")
                         junsu(j + 1)
+                        jenan.jenan_area(my_area)
+                        coronaNow.CovidArea(my_area)
                         break
 
                     elif area_level[j].find(", " + my_area) != -1:
                         print(my_area, "지역은", j + 1, "단계 입니다.")
                         junsu(j + 1)
+                        jenan.jenan_area(my_area)
+                        coronaNow.CovidArea(my_area)
                         break
