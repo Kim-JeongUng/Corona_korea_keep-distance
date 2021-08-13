@@ -36,16 +36,21 @@ def jenan_area(area):
         # Ordered dictionary type
         result = xmltodict.parse(res.text)
         dd = json.loads(json.dumps(result))
-        i=0
-        print(area, "지역의 최신 코로나 관련 재난문자입니다.")
+        i = 0 # 전체 재난문자 카운트
+        k = 0 # 코로나 관련 재난문자 카운트
         for num in dd['DisasterMsg']['row']:
             if dd['DisasterMsg']['row'][i]['msg'].find("검사") != -1:
                 if dd['DisasterMsg']['row'][i]['location_name'].find(area) != -1:
+                    if k == 0:
+                        print(area, "지역의 최신 코로나 관련 재난문자입니다.")
                     print('발령시간 : %s' % dd['DisasterMsg']['row'][i]['create_date'])
                     print('지역 : %s' % dd['DisasterMsg']['row'][i]['location_name'])
                     print('내용 : %s' % dd['DisasterMsg']['row'][i]['msg'])
                     print()
+                    k += 1
             i += 1
+        if k == 0:
+            print(area,"지역에 대한 최근 코로나 관련 재난문자가 없습니다.\n")
 
     else:
         print('res.status_code is NOT ok')

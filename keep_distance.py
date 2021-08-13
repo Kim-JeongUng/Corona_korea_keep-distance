@@ -4,6 +4,7 @@ import pandas as pd
 
 import jenan
 import coronaNow
+
 # 웹 크롤링
 webpage = requests.get("http://ncov.mohw.go.kr/regSocdisBoardView.do?brdId=6&brdGubun=68&ncvContSeq=495")
 soup = BeautifulSoup(webpage.content, "html.parser")
@@ -11,6 +12,7 @@ soup = BeautifulSoup(webpage.content, "html.parser")
 # 행정구역 엑셀
 df = pd.read_excel('C:/Users/USER/PycharmProjects/Corona_korea_keep-distance/행정구역.xlsx')
 
+coronaNow.CovidAll()
 print(soup.find(attrs={'class': 'timetable'}).text + " 사회적 거리두기 단계\n\n")
 
 area_level = [[], [], [], []]
@@ -98,19 +100,18 @@ while 1:
             else:
                 print(my_area, "지역의 상급 행정구역", dov, "으로 검색됩니다. ")
                 i = 0
-                my_area = dov
 
                 for j in range(0, len(area_level)):
-                    if area_level[j].find("(" + my_area) != -1:
+                    if area_level[j].find("(" + dov) != -1:
                         print(my_area, "지역은", j + 1, "단계 입니다.")
                         junsu(j + 1)
                         jenan.jenan_area(my_area)
-                        coronaNow.CovidArea(my_area)
+                        coronaNow.CovidArea(dov)
                         break
 
-                    elif area_level[j].find(", " + my_area) != -1:
+                    elif area_level[j].find(", " + dov) != -1:
                         print(my_area, "지역은", j + 1, "단계 입니다.")
                         junsu(j + 1)
                         jenan.jenan_area(my_area)
-                        coronaNow.CovidArea(my_area)
+                        coronaNow.CovidArea(dov)
                         break

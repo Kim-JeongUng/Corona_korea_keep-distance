@@ -31,6 +31,23 @@ def getCovidKR(end_day, start_day):
         print('res.status_code is NOT ok')
 
 
+def CovidAll():
+    url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=tL8DvlXmKWq0V7ralHks5bdaNOVJ4Y1yMkYncaEWfjTO%2F3bobA%2FuSCSDuVBxesTC%2F3lbC8JcFJZJJe9j9GoPgQ%3D%3D&pageNo=1&numOfRows=10'
+    res = requests.get(url)
+    result = xmltodict.parse(res.text)
+    dd = json.loads(json.dumps(result))
+
+    print("%s기준 신규 확진자 및 누적 확진자" % (dd['response']['body']['items']['item'][0]["stdDay"]))
+
+    i = len(dd['response']['body']['items']['item'])
+    for a in dd['response']['body']['items']['item']:
+        i -= 1
+        if dd['response']['body']['items']['item'][i]['gubun'].find("합계") != -1:
+            print('신규 확진자:', int(dd['response']['body']['items']['item'][i]['incDec']))
+            print('누적 확진자:', dd['response']['body']['items']['item'][i]['defCnt'])
+            print()
+
+
 def CovidArea(area):
     url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=tL8DvlXmKWq0V7ralHks5bdaNOVJ4Y1yMkYncaEWfjTO%2F3bobA%2FuSCSDuVBxesTC%2F3lbC8JcFJZJJe9j9GoPgQ%3D%3D&pageNo=1&numOfRows=10'
     res = requests.get(url)
