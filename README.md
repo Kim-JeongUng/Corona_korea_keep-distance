@@ -2,7 +2,7 @@
 코로나 정보를 크롤링과 오픈API를 사용해 지역별 거리두기단계 및 방역수칙, 재난문자, 발생자수 확인
 
 # View Video
-https://youtu.be/BdT5x3LgeJg
+https://youtu.be/VhAoHQ4-FvU
 
 # Use API 
 - 행정안전부_재난문자방송 발령현황<br>
