@@ -4,6 +4,7 @@ import pandas as pd
 
 import jenan
 import coronaNow
+import GPS_searchMyReigion
 
 # 웹 크롤링
 webpage = requests.get("http://ncov.mohw.go.kr/regSocdisBoardView.do?brdId=6&brdGubun=68&ncvContSeq=495")
@@ -13,13 +14,15 @@ soup = BeautifulSoup(webpage.content, "html.parser")
 df = pd.read_excel('C:/Users/USER/PycharmProjects/Corona_korea_keep-distance/행정구역.xlsx')
 
 coronaNow.CovidAll()
+
+# 웹 크롤링
 print(soup.find(attrs={'class': 'timetable'}).text + " 사회적 거리두기 단계\n\n")
 
 area_level = [[], [], [], []]
 
 target = 4
 
-
+print(GPS_searchMyReigion.my_region)
 def junsu(level):
     print("\n", level, "단계 준수 수칙")
 

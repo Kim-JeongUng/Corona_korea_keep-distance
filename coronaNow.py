@@ -1,3 +1,5 @@
+# 코로나 현재 증가 추이 확인
+
 import requests
 import xmltodict
 import json
@@ -77,5 +79,3 @@ if __name__ == "__main__":
     # d2 = yesterday.strftime("%Y%m%d")
 
     d2 = today.strftime("%Y%m%d")
-    # getCovidKR(d1, d2)
-    CovidArea("대구")
