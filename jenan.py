@@ -1,3 +1,5 @@
+# 재난문자 API 받아오기
+
 import requests
 import xmltodict
 import json
@@ -29,7 +31,7 @@ def jenan_all():
 
 def jenan_area(area):
     print("재난문자를 로딩중입니다. (최대 1분 소요)")
-    url = 'http://apis.data.go.kr/1741000/DisasterMsg3/getDisasterMsg1List?serviceKey=tL8DvlXmKWq0V7ralHks5bdaNOVJ4Y1yMkYncaEWfjTO%2F3bobA%2FuSCSDuVBxesTC%2F3lbC8JcFJZJJe9j9GoPgQ%3D%3D&pageNo=1&numOfRows=300&type=xml'
+    url = 'http://apis.data.go.kr/1741000/DisasterMsg3/getDisasterMsg1List?serviceKey=tL8DvlXmKWq0V7ralHks5bdaNOVJ4Y1yMkYncaEWfjTO%2F3bobA%2FuSCSDuVBxesTC%2F3lbC8JcFJZJJe9j9GoPgQ%3D%3D&pageNo=1&numOfRows=1000&type=xml'
 
     res = requests.get(url)
     if res.status_code == 200:
@@ -40,7 +42,7 @@ def jenan_area(area):
         k = 0 # 코로나 관련 재난문자 카운트
         for num in dd['DisasterMsg']['row']:
             if dd['DisasterMsg']['row'][i]['msg'].find("검사") != -1:
-                if dd['DisasterMsg']['row'][i]['location_name'].find(area) != -1:
+                if dd['DisasterMsg']['row'][i]['location_name'].find(area[0:2]) != -1:
                     if k == 0:
                         print(area, "지역의 최신 코로나 관련 재난문자입니다.")
                     print('발령시간 : %s' % dd['DisasterMsg']['row'][i]['create_date'])

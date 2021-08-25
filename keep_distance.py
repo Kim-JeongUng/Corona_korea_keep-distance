@@ -1,3 +1,4 @@
+# 메인 실행
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -11,7 +12,7 @@ webpage = requests.get("http://ncov.mohw.go.kr/regSocdisBoardView.do?brdId=6&brd
 soup = BeautifulSoup(webpage.content, "html.parser")
 
 # 행정구역 엑셀
-df = pd.read_excel('C:/Users/USER/PycharmProjects/Corona_korea_keep-distance/행정구역.xlsx')
+df = pd.read_excel('행정구역.xlsx')
 
 coronaNow.CovidAll()
 
@@ -22,7 +23,9 @@ area_level = [[], [], [], []]
 
 target = 4
 
-print(GPS_searchMyReigion.my_region)
+print(GPS_searchMyReigion.my_region2, GPS_searchMyReigion.my_region3)
+
+
 def junsu(level):
     print("\n", level, "단계 준수 수칙")
 
@@ -71,10 +74,8 @@ for descript in soup.find_all("p", "rssd_descript"):
     if target < 1:
         break
 
+my_area = GPS_searchMyReigion.my_region2
 while 1:
-    print("\n지역을 입력하세요 : ")
-    my_area = input()
-
     do = df['시도명'].loc[df['시군구명'].str.contains(my_area) == True]
     dov = ""
 
@@ -118,3 +119,6 @@ while 1:
                         jenan.jenan_area(my_area)
                         coronaNow.CovidArea(dov)
                         break
+
+    print("\n지역을 입력하세요 : ")
+    my_area = input()

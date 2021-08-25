@@ -15,7 +15,6 @@ data = {
 }
 
 result = requests.post(url, data).json()
-
-my_lat = result["location"]["lat"]
-my_lng = result["location"]["lng"]
-
+my_lat = 37.29088909058154#result["location"]["lat"]
+my_lng = 127.00763359938911#result["location"]["lng"]
+#37.29088909058154, 127.00763359938911
