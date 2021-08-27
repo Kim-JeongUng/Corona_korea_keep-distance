@@ -1,19 +1,32 @@
-# 좌표로 시 찾기
-# 카카오 API 활용
+# GPS로 내 좌표 찾기 구글 geolocation api 사용
+# 내 좌표로 지역 이름 한글화
 
 import requests
+from dotenv import load_dotenv
 import json
-import GPS_searchLat_Lng
 
 # 매일 GPS 기록 저장
 import pandas as pd
 import datetime
+load_dotenv(verbose=True)
 
+#LOCATION_API_KEY = os.getenv('AIzaSyCArXnnrT7PhvZUinEuN94BRZfx5Qibyto')
 
-APP_KEY = 'b3c7423bf62d904aad46bea35d6db181'    # 발급받은 키 입력
+url = f'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCArXnnrT7PhvZUinEuN94BRZfx5Qibyto'
+data = {
+    'considerIp': True,
+}
 
-url = "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=%s&y=%s"%(GPS_searchLat_Lng.my_lng, GPS_searchLat_Lng.my_lat)
-headers = {"Authorization": "KakaoAK b3c7423bf62d904aad46bea35d6db181"}
+result = requests.post(url, data).json()
+my_lat = result["location"]["lat"]
+my_lng = result["location"]["lng"]
+# 임시 데이터 수원 장안동 좌표
+#my_lat = 37.29088909058154
+#my_lng = 127.00763359938911
+
+# 좌표로 지역명 찾기
+url = "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=%s&y=%s"%(my_lng, my_lat)
+headers = {"Authorization": "KakaoAK b3c7423bf62d904aad46bea35d6db181"} # API KEY
 api_test = requests.get(url, headers=headers)
 url_text = json.loads(api_test.text)
 
@@ -40,9 +53,5 @@ if not (df.iloc[-1]['my_region3'] == my_region3 or df.iloc[-1]['date'] == today)
 
     # 이전 데이터와 새로운 데이터를 합침
     df = pd.concat([df,new_df])
-
+    print("지역 또는 날짜가 바뀌어 데이터를 저장합니다.")
     df.to_excel('areaLog.xlsx')
-
-
-
-

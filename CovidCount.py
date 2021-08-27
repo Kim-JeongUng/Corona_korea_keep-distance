@@ -1,4 +1,4 @@
-# 코로나 현재 증가 추이 확인
+# 코로나 신규 확진자 확인
 
 import requests
 import xmltodict
@@ -9,6 +9,7 @@ import datetime
 # 데이터셋 : 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=tL8DvlXmKWq0V7ralHks5bdaNOVJ4Y1yMkYncaEWfjTO%2F3bobA%2FuSCSDuVBxesTC%2F3lbC8JcFJZJJe9j9GoPgQ%3D%3D&pageNo=1&numOfRows=10&startCreateDt=20210809&endCreateDt=20210810'
 # data.go.kr
 
+# 전체 지역 누적확진자 및 추가확진자
 def getCovidKR(end_day, start_day):
     url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=tL8DvlXmKWq0V7ralHks5bdaNOVJ4Y1yMkYncaEWfjTO%2F3bobA%2FuSCSDuVBxesTC%2F3lbC8JcFJZJJe9j9GoPgQ%3D%3D&pageNo=1&numOfRows=10'
     # ServiceKey는 url decode 한 값임.
@@ -32,7 +33,7 @@ def getCovidKR(end_day, start_day):
     else:
         print('res.status_code is NOT ok')
 
-
+#전국 코로나 신규 확진자
 def CovidAll():
     url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=tL8DvlXmKWq0V7ralHks5bdaNOVJ4Y1yMkYncaEWfjTO%2F3bobA%2FuSCSDuVBxesTC%2F3lbC8JcFJZJJe9j9GoPgQ%3D%3D&pageNo=1&numOfRows=10'
     res = requests.get(url)
@@ -49,7 +50,7 @@ def CovidAll():
             print('누적 확진자:', dd['response']['body']['items']['item'][i]['defCnt'])
             print()
 
-
+#특정 지역 신규 확진자
 def CovidArea(area):
     url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=tL8DvlXmKWq0V7ralHks5bdaNOVJ4Y1yMkYncaEWfjTO%2F3bobA%2FuSCSDuVBxesTC%2F3lbC8JcFJZJJe9j9GoPgQ%3D%3D&pageNo=1&numOfRows=10'
     res = requests.get(url)
