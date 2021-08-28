@@ -39,6 +39,9 @@ while 1:
         dov = val
 
     for i in range(0, len(KeepDistance.area_level)):
+        if len(my_area) < 2:
+            print("데이터가 없습니다. 다시 검색하세요")
+            break
         if KeepDistance.area_level[i].find("(" + my_area) != -1 or KeepDistance.area_level[i].find(", " + my_area) != -1:
             print(my_area, "지역은", i + 1, "단계 입니다.")
             KeepDistance.Junsu(i + 1)
