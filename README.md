@@ -36,7 +36,7 @@
     ~ 12월 중순: 사업계획작성 및 기능추가사항, 오류 수정<br>
     
 # Contributors
-김정웅  [Kim-JeongUng](https://github.com/Kim-JeongUng "Kim-JeongUng") 
+김정웅  [Kim-JeongUng](https://github.com/Kim-JeongUng "Kim-JeongUng")   
 이화준  [Mython](https://github.com/MACE001 "Mython")    
 김범수  [GanziMan](https://github.com/GanziMan "GanziMan")   
 최홍석  [RednRock](https://github.com/RednRock "RednRock")
