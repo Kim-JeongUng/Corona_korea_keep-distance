@@ -2,8 +2,6 @@ import pandas as pd
 # 메인 실행 파일
 # 현재 실행순서 -> 신규 확진자, 누적확진자 -> 지역별 사회적 거리두기 단계 -> 내 지역 -> 내 지역 거리두기 단계 -> 신규확진자 및 누적확진자 -> 재난문자 -> 지역검색
 
-# 재난문자 API  #jenan_all(), jenan_area(area)
-import JenanMessage
 
 # 일별, 전체 코로나 확진자수 API
 # 전체 지역 누적확진자 및 추가확진자 getCovidKR(end_day, start_day)
@@ -16,6 +14,9 @@ import GPS_Reader_Saver
 # 거리두기 단계 및 준수 수칙 크롤링
 # 거리두기 단계 준수수칙 Junsu(level) 전체지역 코로나 단계 출력 KeepDistanceAllArea():
 import KeepDistance
+
+# 재난문자 API  #jenan_all(), jenan_area(area)
+import JenanMessage
 
 # 행정구역 엑셀읽어오기
 df = pd.read_excel('행정구역.xlsx')

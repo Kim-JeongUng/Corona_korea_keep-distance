@@ -2,13 +2,13 @@
 # 내 좌표로 지역 이름 한글화
 
 import requests
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import json
 
 # 매일 GPS 기록 저장
 import pandas as pd
 import datetime
-load_dotenv(verbose=True)
+#load_dotenv(verbose=True)
 
 #LOCATION_API_KEY = os.getenv('AIzaSyCArXnnrT7PhvZUinEuN94BRZfx5Qibyto')
 
