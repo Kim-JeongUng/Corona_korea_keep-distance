@@ -23,7 +23,8 @@ my_lng = result["location"]["lng"]
 # 임시 데이터 수원 장안동 좌표
 #my_lat = 37.29088909058154
 #my_lng = 127.00763359938911
-
+print(my_lng)
+print(my_lat)
 # 좌표로 지역명 찾기
 url = "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=%s&y=%s"%(my_lng, my_lat)
 headers = {"Authorization": "KakaoAK b3c7423bf62d904aad46bea35d6db181"} # API KEY
