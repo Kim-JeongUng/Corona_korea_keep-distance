@@ -66,4 +66,4 @@ while 1:
     print("\n지역을 입력하세요 : ")
     my_area = input()
 
-#test
+#leehwajun

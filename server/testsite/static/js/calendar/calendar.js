@@ -46,7 +46,7 @@ const renderCalender = () => {
                 </div>
 
                 <div class="date_event">
-                    <div class="event-itm">EVENT</div>
+                    <div class="event-itm">hello</div>
                 </div>
 
             </div>
@@ -83,3 +83,4 @@ const goToday = () => {
     date = new Date();
     renderCalender();
 };
+
