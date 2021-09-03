@@ -1,3 +1,9 @@
+
+* {
+    margin:0px;
+  box-sizing: border-box;
+}
+
 .calendar {
     width: 90%;
     margin: auto;
