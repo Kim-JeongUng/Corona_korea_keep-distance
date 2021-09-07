@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import re
 from datetime import datetime
 import os
-from selenium import webdriver
+#from selenium import webdriver
 
 date = str(datetime.now())
 date = date[:date.rfind(':')].replace(' ', '_')
