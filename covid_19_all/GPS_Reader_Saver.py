@@ -55,6 +55,6 @@ if not (df.iloc[-1]['my_region3'] == my_region3 or df.iloc[-1]['date'] == today)
     print("지역 또는 날짜가 바뀌어 데이터를 저장합니다.")
     df.to_excel('areaLog.xlsx')
 
-print(my_lat)
+print("lat : ",my_lat)
 
-print(my_lng)
+print("lng : ",my_lng)
