@@ -6,3 +6,6 @@ def test(request):
 
 def codetest(request):
     return render(request,'corona/read_exel_file.html')
+
+def get_gps(request):
+    return render(request,'corona/gps.html')
