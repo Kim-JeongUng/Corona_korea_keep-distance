@@ -1,6 +1,23 @@
-{% load GPS_Reader_Saver%}
 <div id="id_div">
-    {% get_gps_value %}
     <p>--------------------------------</p>
+    <script>
+        function get_geo(){
+            if(!!navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
+            }
+            else{
+                alert("잘못됨");
+            }
+        }
+        function successCallback(position){
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            alert("hello");
+            location.href=lng+"/"+lat;
+        }
+        function errorCallback(){
+                        alert("error");
+        }
+        get_geo();
     </script>
 </div>

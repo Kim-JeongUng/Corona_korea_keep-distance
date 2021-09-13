@@ -19,6 +19,7 @@ from django.urls import include, path
 urlpatterns = [
     path('', include('corona.urls')),
     path('python/', include('corona.urls')),
-    path('gps/',include('corona.urls')),
+    path('gps/', include('corona.urls')),
+    path('gps/<str:user_lng>/<str:user_lat>',include('corona.urls')),
     path('admin/', admin.site.urls),
 ]
