@@ -28,7 +28,9 @@ KeepDistance.KeepDistanceAllArea()
 
 # GPS 기반 내 지역 어딘지 출력
 print(GPS_Reader_Saver.my_region2, GPS_Reader_Saver.my_region3)
-my_area = GPS_Reader_Saver.my_region2
+
+# ** 시에서 시 빼주기 위해 슬라이싱
+my_area = GPS_Reader_Saver.my_region2[:-1]
 
 # 지역별 거리두기 단계 및 코로나 확진자 수, 재난문자 출력
 while 1:
@@ -42,12 +44,15 @@ while 1:
         if len(my_area) < 2:
             print("데이터가 없습니다. 다시 검색하세요")
             break
+
         if KeepDistance.area_level[i].find("(" + my_area) != -1 or KeepDistance.area_level[i].find(", " + my_area) != -1:
             print(my_area, "지역은", i + 1, "단계 입니다.")
             KeepDistance.Junsu(i + 1)
-            CovidCount.CovidArea(my_area)
+            CovidCount.CovidArea(dov)
+            CovidCount.CovidSmallArea(dov, my_area)
             JenanMessage.jenan_area(my_area)
             break
+
         elif i == len(KeepDistance.area_level) - 1:
             if dov == "":
                 print("데이터가 없습니다. 다시 검색하세요")
