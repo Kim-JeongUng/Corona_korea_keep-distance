@@ -17,15 +17,24 @@ KeepDistanceLevelSoup = BeautifulSoup(KeepDistanceLevel.content, "html.parser")
 
 # 거리두기단계 준수수칙
 def Junsu(level):
-    print("\n", level, "단계 준수 수칙")
 
+    print("\n", level, "단계 준수 수칙")
+    #식당
+    restaurant_level_list = KeepDistanceLevelSoup.select("#content > div > div:nth-child(3) > table > tbody > tr:nth-child(3) > td")
+    #피시방
+    pc_level_list = KeepDistanceLevelSoup.select("#content > div > div:nth-child(9) > table > tbody > tr:nth-child(24) > td")
+
+    # 3단계, 4단계만 적용
+    print(KeepDistanceLevelSoup.find(attrs={'class': 's_discript txt_ntc'}).text)
+
+    # print(level_list[0].text)
+    # print(level_list[1].text)
+    for lev in pc_level_list:
+        print(lev.text)
+
+    # if len(pc_level_list) > 4:
     if level == 1:
-        print("사적 모임 가능")
-        print("유흥시설 운영시간 제한 없음")
-        print("식당,카페 운영시간 제한 없음")
-        print("코인노래방 운영시간 제한 없음")
-        print("PC방 제한없음")
-        print("헬스장 제한없음")
+
 
     if level == 2:
         print("사적 모임 가능")
@@ -52,6 +61,7 @@ def Junsu(level):
         print("헬스장 22시 이후 운영제한")
     print()
 
+Junsu(1)
 
 # 전체지역 코로나 단계 출력
 def KeepDistanceAllArea():

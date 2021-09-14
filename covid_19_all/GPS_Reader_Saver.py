@@ -12,6 +12,7 @@ import datetime
 
 #LOCATION_API_KEY = os.getenv('AIzaSyCArXnnrT7PhvZUinEuN94BRZfx5Qibyto')
 
+# 좌표 찾기 api
 url = f'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCArXnnrT7PhvZUinEuN94BRZfx5Qibyto'
 data = {
     'considerIp': True,
@@ -23,7 +24,8 @@ my_lng = result["location"]["lng"]
 # 임시 데이터 수원 장안동 좌표
 #my_lat = 37.29088909058154
 #my_lng = 127.00763359938911
-# 좌표로 지역명 찾기
+
+# 좌표로 지역명 찾기 API
 url = "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=%s&y=%s"%(my_lng, my_lat)
 headers = {"Authorization": "KakaoAK b3c7423bf62d904aad46bea35d6db181"} # API KEY
 api_test = requests.get(url, headers=headers)
