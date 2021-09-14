@@ -19,47 +19,50 @@ KeepDistanceLevelSoup = BeautifulSoup(KeepDistanceLevel.content, "html.parser")
 def Junsu(level):
 
     print("\n", level, "단계 준수 수칙")
+    #모임
+    meet_level_list = KeepDistanceLevelSoup.select("#content > div > div:nth-child(3) > table > tbody > tr:nth-child(3) > td")
     #식당
-    restaurant_level_list = KeepDistanceLevelSoup.select("#content > div > div:nth-child(3) > table > tbody > tr:nth-child(3) > td")
+    restaurant_level_list = KeepDistanceLevelSoup.select("#content > div > div:nth-child(7) > table > tbody > tr:nth-child(2) > td")
     #피시방
     pc_level_list = KeepDistanceLevelSoup.select("#content > div > div:nth-child(9) > table > tbody > tr:nth-child(24) > td")
-
-    # 3단계, 4단계만 적용
-    print(KeepDistanceLevelSoup.find(attrs={'class': 's_discript txt_ntc'}).text)
-
-    # print(level_list[0].text)
-    # print(level_list[1].text)
-    for lev in pc_level_list:
-        print(lev.text)
-
-    # if len(pc_level_list) > 4:
-    if level == 1:
-
-
-    if level == 2:
-        print("사적 모임 가능")
-        print("유흥시설 24시 이후 운영제한")
-        print("식당,카페 24시 이후 포장 배달만 허용")
-        print("코인노래방 24시 이후 운영제한")
-        print("PC방 제한없음")
-        print("헬스장 제한없음")
-
-    if level == 3:
-        print("4인까지 모임가능")
-        print("유흥시설 22시 이후 운영제한")
-        print("식당,카페 22시 이후 포장 배달만 허용")
-        print("코인노래방 22시 이후 운영제한")
-        print("PC방 제한없음")
-        print("헬스장 제한없음")
-
-    if level == 4:
-        print("18시 이후 2명까지 모임가능, 18시 이전 4인까지 모임가능")
-        print("유흥시설 집합금지")
-        print("식당,카페 22시 이후 포장 배달만 허용")
-        print("코인노래방 22시 이후 운영제한")
-        print("PC방 22시 이후 운영제한")
-        print("헬스장 22시 이후 운영제한")
+    print(pc_level_list)
+    if(len(pc_level_list)>4):
+        pc_level_list.insert(0,  KeepDistanceLevelSoup.select("#content > div > div:nth-child(9) > table > tbody > tr:nth-child(24) > td")[0])
+    print(pc_level_list)
+    print(meet_level_list[0].text,": ",meet_level_list[level].text)
+    if(level>=3):
+        # 3단계, 4단계만 적용
+        print(KeepDistanceLevelSoup.find(attrs={'class': 's_discript txt_ntc'}).text)
+    print(pc_level_list[3].text)
+    print(restaurant_level_list[level])
     print()
+
+    '''test line'''
+    '''    
+    # 전체 구분 출력
+    # 사회적 거리두기 단계별 수칙
+    BasicDistanceSummary = KeepDistanceLevelSoup.select("#content > div > div:nth-child(3) > table > tbody > tr > td:nth-child(1)")
+    for BD in BasicDistanceSummary:
+        print(BD.text)
+    print()
+
+    # 1그룹시설에 대한 구분
+    for C1 in KeepDistanceLevelSoup.select("#content > div > div:nth-child(5) > table > tbody > tr > td:nth-child(1)"):
+        if (len(C1.text) < 10) and len(C1.text):
+            print(C1.text)
+        else:
+            Category1Distance = ""
+        #print(len(C1.text))
+    print(Category1Distance)
+    print()
+
+    # 모든 구분 출력, 정리 필요
+    print(KeepDistanceLevelSoup.select("#content > div > div > table > tbody > tr > td:nth-child(1)"))
+    print()
+
+    if len(pc_level_list) > 4:
+        level = len(pc_level_list)
+    '''
 
 Junsu(1)
 
