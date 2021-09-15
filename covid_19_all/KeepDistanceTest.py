@@ -33,7 +33,7 @@ def Junsu(level):
     if(level>=3):
         # 3단계, 4단계만 적용
         print(KeepDistanceLevelSoup.find(attrs={'class': 's_discript txt_ntc'}).text)
-    print(pc_level_list[3].text)
+    print(pc_level_list[level].text)
     print(restaurant_level_list[level])
     print()
 
