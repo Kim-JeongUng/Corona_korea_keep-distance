@@ -65,36 +65,6 @@ def CovidArea(area):
             print()
 
 
-# 시 별 확진자
-def CovidSmallArea(area, sArea):
-    if(area == "강원"):
-        url = requests.get("http://www.provin.gangwon.kr/covid-19.html")
-        soup = BeautifulSoup(url.content, "html.parser")
-
-        # 강원도 전체 출력
-        # print(soup.find(attrs={'class': 'txt-c'}).text)
-
-        if soup.find(attrs={'class': 'txt-c'}).text.find(sArea)!=-1:
-            findNum = soup.find(attrs={'class': 'txt-c'}).text.find(sArea)
-        else:
-            findNum = 0
-
-        if findNum != 0: # 발생자 있음
-            # sAreaCount 시 군 분류 확진자 수
-            # 정규식 이용, 해당 지역 뒤의 숫자 분류
-            sAreaCount = re.findall("\d+",soup.find(attrs={'class': 'txt-c'}).text[findNum+len(sArea):])[0]
-
-        else: # 발생자 없음
-            sAreaCount = 0
-
-        print(sArea,"지역 신규 확진자 :",sAreaCount) # 시 군 분류 확진자수
-        #print(soup.find(attrs={'class': 'txt-c'}).text.find(sArea))
-
-
-    else:
-        print("소규모 지역별 확진자 미지원 지역입니다.")
-#CovidSmallArea("강원","춘천")
-
 if __name__ == "__main__":
     today = datetime.datetime.now()
     yesterday = today - datetime.timedelta(1)
