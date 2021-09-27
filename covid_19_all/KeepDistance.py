@@ -3,11 +3,17 @@
 import requests
 from bs4 import BeautifulSoup
 
-# 웹 크롤링
+# 거리두기 단계 웹 크롤링
 webpage = requests.get("http://ncov.mohw.go.kr/regSocdisBoardView.do?brdId=6&brdGubun=68&ncvContSeq=495")
 soup = BeautifulSoup(webpage.content, "html.parser")
 
 area_level = [[], [], [], []]
+
+
+# 거리두기 단계 별 방역수칙 웹 크롤링
+KeepDistanceLevel = requests.get("http://ncov.mohw.go.kr/socdisBoardView.do?brdId=6&brdGubun=1")
+KeepDistanceLevelSoup = BeautifulSoup(KeepDistanceLevel.content, "html.parser")
+
 
 # 거리두기단계 준수수칙
 def Junsu(level):

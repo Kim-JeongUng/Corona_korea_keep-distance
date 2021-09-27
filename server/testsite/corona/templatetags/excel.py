@@ -21,5 +21,6 @@ def load_excel():
         cell_count+=1
     return cell_all
 @register.simple_tag#html에서 로드하기 위한 부분
-def kkk():
-    return "hhhhhhhhhhhhhhhhhh"
+
+def kkk(location):
+    return location

@@ -7,6 +7,7 @@ import pandas as pd
 # 전체 지역 누적확진자 및 추가확진자 getCovidKR(end_day, start_day)
 # 전국 코로나 신규 확진자 CovidAll() 특정 지역 신규 확진자 CovidArea(area):
 import CovidCount
+import CovidCountSmallArea
 
 # GPS API 및 이동 경로 엑셀 저장
 import GPS_Reader_Saver
@@ -49,8 +50,8 @@ while 1:
             print(my_area, "지역은", i + 1, "단계 입니다.")
             KeepDistance.Junsu(i + 1)
             CovidCount.CovidArea(dov)
-            CovidCount.CovidSmallArea(dov, my_area)
             JenanMessage.jenan_area(my_area)
+            print(my_area,"지역 오늘 증가 수치 : ", CovidCountSmallArea.find(my_area))
             break
 
         elif i == len(KeepDistance.area_level) - 1:
@@ -66,9 +67,9 @@ while 1:
                         KeepDistance.Junsu(j + 1)
                         CovidCount.CovidArea(dov)
                         JenanMessage.jenan_area(my_area)
+                        print(my_area,"지역 오늘 증가 수치 : ", CovidCountSmallArea.find(my_area))
                         break
 
     print("\n지역을 입력하세요 : ")
     my_area = input()
 
-#leehwajun
