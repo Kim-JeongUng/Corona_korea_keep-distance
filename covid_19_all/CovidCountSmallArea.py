@@ -20,8 +20,6 @@ yesterday = yesterday.strftime("%Y%m%d")
 
 wb = openpyxl.load_workbook('CovidCount.xlsx')
 
-td_sheet = wb[today]
-ys_sheet = wb[yesterday]
 
 
 def save():
@@ -41,16 +39,18 @@ def save():
                 'region': [rgn],
             }
             # 엑셀 저장
+            td_sheet = wb[today]
             td_sheet.append([rgn])
             wb.save('CovidCount.xlsx')
 
 def CovidCountSave():
     try:
-        print(wb.active.title)
-        if int(wb.active.title) != int(today):
+        # 데이터 파일의 첫번째 인덱스 시트의 값과 오늘 날짜 비교, 다르면 저장
+        if int(wb.sheetnames[0]) != int(today):
             save()
             state = 1
         else:
+            # 이미 저장된 자료가 있음
             print("이전과 같음")
             state = 0
 
@@ -63,6 +63,9 @@ def CovidCountSave():
 
 
 def find(area):
+    td_sheet = wb[today]        # 오늘 시트
+    ys_sheet = wb[yesterday]    # 전날 시트
+
     for i in ys_sheet.rows:
         if area in i[0].value:
             ys_cnt = int(re.findall("\d+", i[0].value)[0])
@@ -80,5 +83,15 @@ def find(area):
 
 def __init__():
     CovidCountSave()
-#print(find("원주시"))
-#print(find("춘천시"))
+
+
+''' 
+    서버에선 다음을 실행해야함 
+    CovidCountSave()
+'''
+'''
+    사용자는 다음을 실행해야함
+    find(area)
+    #print(find("원주시"))
+    #print(find("춘천시"))
+'''
