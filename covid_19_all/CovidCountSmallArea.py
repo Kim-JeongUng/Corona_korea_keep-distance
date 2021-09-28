@@ -84,7 +84,9 @@ def find(area):
 def __init__():
     CovidCountSave()
 
-
+#CovidCountSave()
+#print(find("원주시"))
+#print(find("춘천시"))
 ''' 
     서버에선 다음을 실행해야함 
     CovidCountSave()
