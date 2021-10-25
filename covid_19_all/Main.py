@@ -18,7 +18,7 @@ import KeepDistance
 
 # 재난문자 API  #jenan_all(), jenan_area(area)
 import JenanMessage
-
+싱
 CovidCountSmallArea.CovidCountSave()
 
 # 행정구역 엑셀읽어오기
