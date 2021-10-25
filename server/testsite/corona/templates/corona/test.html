@@ -1,24 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <tabel>
-        <tr>
-            <th>제목</th>
-            <th>내용</th>
-        </tr>
-        {% for Login in logins %}
-        <tr>
-            <td>{{Login.Login_title}}</td>
-            <td>{{Login.Login_content}}</td>
 
-        </tr>
-        {%endfor%}
-    </tabel>
 </head>
 <body>
+<div>
+        <div>
+        하하
+            {% for logindb in login %}
+            {{logindb.login_id}}
+            {{logindb}}
+            {% endfor %}
+            {% for login in login %}
+            {{login.login_id}}
+            {{login}}
+            {% endfor %}
+            {% for login in logindb %}
+            {{login.login_id}}
+            {{login}}
+            {% endfor %}
+            {% for results in result %}
+            {{results.login_password}}
+            {{results}}
+            {% endfor %}
+
+        </div>
+
+      <div>
+               {% for i in data_list %}
+				{{ i[0] }}
+            	{% endfor %}
+      </div>
+
+</div>
 
 </body>
 </html>
