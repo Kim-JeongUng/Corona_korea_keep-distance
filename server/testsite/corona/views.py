@@ -13,6 +13,10 @@ def codetest(request):
 
 def get_gps(request):
     return render(request,'corona/gps.html')
+
+def get_news(request):
+    return render(request,'corona/news.html')
+
 def login(request):
     return render(request,'corona/login.html')
 def test(request):
