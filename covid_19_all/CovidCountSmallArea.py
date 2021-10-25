@@ -63,8 +63,15 @@ def CovidCountSave():
 
 
 def find(area):
-    td_sheet = wb[today]        # 오늘 시트
-    ys_sheet = wb[yesterday]    # 전날 시트
+    try:
+        td_sheet = wb[today]        # 오늘 시트
+    except:
+        td_sheet = wb[wb.sheetnames[0]]
+    try:
+        ys_sheet = wb[yesterday]    # 전날 시트
+    except:
+        #print("전날 기록이 없어 부정확한 자료입니다.")
+        ys_sheet = wb[wb.sheetnames[1]]
 
     for i in ys_sheet.rows:
         if area in i[0].value:
