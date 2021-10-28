@@ -10,8 +10,7 @@ import re
 
 import openpyxl
 
-url = requests.get('http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=13&ncvContSeq=&contSeq=&board_id=&gubun=')
-CovidCountURL = BeautifulSoup(url.content, "html.parser")
+
 
 today = datetime.datetime.now()
 yesterday = today - datetime.timedelta(1)
@@ -23,25 +22,37 @@ wb = openpyxl.load_workbook('CovidCount.xlsx')
 
 
 def save():
-    # 이부분에 이전 Today자료를 YesterDay시트로 옮겨줘야함
-    print("날짜가 바뀌어 데이터를 저장합니다.")
-    # today -> yesterday , 오늘 새로운 데이터 추가
+    try:
+        url = requests.get('http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=13&ncvContSeq=&contSeq=&board_id=&gubun=')
+        CovidCountURL = BeautifulSoup(url.content, "html.parser")
+        today = datetime.datetime.now()
+        yesterday = today - datetime.timedelta(1)
+        today = today.strftime("%Y%m%d")
+        yesterday = yesterday.strftime("%Y%m%d")
 
-    wb.create_sheet(index=0, title=today)
-    for i in range(0, 18, 1):
-        regionData = CovidCountURL.select("#zone_popup" + str(i) + " > div > table > tbody > tr")
+        wb = openpyxl.load_workbook('CovidCount.xlsx')
+        # 이부분에 이전 Today자료를 YesterDay시트로 옮겨줘야함
+        print("날짜가 바뀌어 데이터를 저장합니다.")
+        # today -> yesterday , 오늘 새로운 데이터 추가
 
-        for rgn in regionData:
-            # 콤마 제거
-            rgn = rgn.text.replace(',', '')
-            data = {
-                'date': [today],
-                'region': [rgn],
-            }
-            # 엑셀 저장
-            td_sheet = wb[today]
-            td_sheet.append([rgn])
-            wb.save('CovidCount.xlsx')
+        wb.create_sheet(index=0, title=today)
+        for i in range(0, 18, 1):
+            regionData = CovidCountURL.select("#zone_popup" + str(i) + " > div > table > tbody > tr")
+
+            for rgn in regionData:
+                # 콤마 제거
+                rgn = rgn.text.replace(',', '')
+                data = {
+                    'date': [today],
+                    'region': [rgn],
+                }
+                # 엑셀 저장
+                td_sheet = wb[today]
+                td_sheet.append([rgn])
+                wb.save('CovidCount.xlsx')
+        print("Save OK")
+    except:
+        print("Save Error")
 
 def CovidCountSave():
     try:
