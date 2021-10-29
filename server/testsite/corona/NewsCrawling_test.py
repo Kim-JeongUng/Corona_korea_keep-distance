@@ -24,7 +24,7 @@ def news(query):
     idx = 0
     idx2 = 0
     cur_page = 1
-
+    newslist = []
     while idx < news_num:
         ### 네이버 뉴스 웹페이지 구성이 바뀌어 태그명, class 속성 값 등을 수정함(20210126) ###
 
@@ -38,26 +38,32 @@ def news(query):
         img_list = [area.select_one('div > a > img') for area in area2_list]
 
         for n in a_list[:min(len(a_list), news_num - idx)]:
-
             news_dict[idx] = {'title': n.get('title'),
                               'url': n.get('href')}
             idx += 1
-
-        for n in img_list[:min(len(img_list), news_num - idx2)]:
-
-            news_dict2[idx2] = {'img': n.get('src')}
-            idx2 += 1
-
+        try:
+            for n in img_list[:min(len(img_list), news_num - idx2)]:
+                news_dict2[idx2] = {'img': n.get('src')}
+                idx2 += 1
+        except:
+            news_dict2[idx2] = {'img':"none"}
         cur_page += 1
 
     news_df = DataFrame(news_dict).T
     news_df2 = DataFrame(news_dict2).T
 
-    for x in range(0,news_num):
-        print("사진 : ",news_dict2[x]['img'])
-        print("제목 : ",news_dict[x]['title'])
-        print("링크 : ",news_dict[x]['url'])
+    for x in range(0, news_num):
+        print("사진 : ", news_dict2[x]['img'])
+        newslist.append("<img src=" + str(news_dict2[x]['img']) + "><br>")
+        print("제목 : ", news_dict[x]['title'])
+        newslist.append("<a href=" + str(news_dict[x]['url'])+">"+str(news_dict[x]['title']) + "</a><br>")
+        print("링크 : ", news_dict[x]['url'])
+
         print("===================================================================================")
+
+    return newslist
+
+print(news("춘천"))
 
 #folder_path = os.getcwd()
 #xlsx_file_name = '네이버뉴스_{}_{}.xlsx'.format(query[0:2], date)
