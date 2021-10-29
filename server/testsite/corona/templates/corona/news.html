@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div id="id_div">
+    <p id="lat"></p></p>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+            var url = "news/춘천";
+            var result = $.get(url, function(data){
+                document.getElementById("lat").innerHTML = data;
+	            });
+    </script>
+</div>

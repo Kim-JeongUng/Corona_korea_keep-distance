@@ -63,8 +63,6 @@ def news(query):
 
     return newslist
 
-print(news("춘천"))
-
 #folder_path = os.getcwd()
 #xlsx_file_name = '네이버뉴스_{}_{}.xlsx'.format(query[0:2], date)
 

@@ -23,4 +23,5 @@ urlpatterns = [
     path('gps/', include('corona.urls')),
     path('gps/<str:user_lng>/<str:user_lat>',include('corona.urls')),
     path('admin/', admin.site.urls),
+    path('news/',include('corona.urls')),
 ]

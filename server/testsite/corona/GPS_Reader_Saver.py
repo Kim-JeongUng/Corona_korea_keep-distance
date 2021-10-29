@@ -64,4 +64,4 @@ def get_gps_value(user_lng,user_lat):
         print("지역 또는 날짜가 바뀌어 데이터를 저장합니다.")
         df.to_excel('areaLog.xlsx')
 
-    return ([my_region2,my_region3,user_lat,user_lng])
+    return ([my_region2+" "+my_region3])
