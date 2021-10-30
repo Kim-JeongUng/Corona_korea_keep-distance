@@ -4,6 +4,7 @@ from django import template
 from .models import Login
 from django.db import connection
 from corona.GPS_Reader_Saver import get_gps_value
+from corona.NewsCrawling_test import news
 # Create your views here.
 def test(request):
     return render(request,'corona/index.html')
@@ -14,8 +15,8 @@ def codetest(request):
 def get_gps(request):
     return render(request,'corona/gps.html')
 
-def get_news(request):
-    return render(request,'corona/news.html')
+def get_news(request,query):
+    return HttpResponse(news(query))
 
 def login(request):
     return render(request,'corona/login.html')
