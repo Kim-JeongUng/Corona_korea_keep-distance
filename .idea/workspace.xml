@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cd3b11c1-fa61-40a1-8fed-655f6657d489" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid_19_all/CovidCount.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/CovidCount.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/covid_19_all/CovidCountSmallArea.py" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/CovidCountSmallArea.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid_19_all/JenanMessage.py" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/JenanMessage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid_19_all/ScheduleServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/ScheduleServer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +53,7 @@
       <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templatetags" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Main">
+  <component name="RunManager" selected="Python.ScheduleServer">
     <configuration name="KeepDistance" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Corona_korea_keep-distance" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -167,8 +168,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Main" />
         <item itemvalue="Python.ScheduleServer" />
+        <item itemvalue="Python.Main" />
         <item itemvalue="Python.NewsCrawling_test" />
         <item itemvalue="Python.NewsCrawling" />
         <item itemvalue="Python.KeepDistance" />

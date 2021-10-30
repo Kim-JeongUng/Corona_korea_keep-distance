@@ -55,6 +55,11 @@ def save():
         print("Save Error")
 
 def CovidCountSave():
+    today = datetime.datetime.now()
+    yesterday = today - datetime.timedelta(1)
+    today = today.strftime("%Y%m%d")
+    yesterday = yesterday.strftime("%Y%m%d")
+
     try:
         # 데이터 파일의 첫번째 인덱스 시트의 값과 오늘 날짜 비교, 다르면 저장
         if int(wb.sheetnames[0]) != int(today):
@@ -70,6 +75,7 @@ def CovidCountSave():
         state = -1
 
     # state -1 : 오류(파일없음 등) / 0 : 데이터의 변화 없음 저장안함 / 1 : 새로운 데이터를 저장함
+    print(state, datetime.datetime.now())
     return state
 
 
