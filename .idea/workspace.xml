@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd3b11c1-fa61-40a1-8fed-655f6657d489" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/calendar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid_19_all/CovidCount.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/CovidCount.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/corona/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/corona/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/testsite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/testsite/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +40,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/testsite/corona" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
@@ -44,11 +50,11 @@
       <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templates\corona" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templates\corona" />
       <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona" />
       <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templates" />
       <recent name="$PROJECT_DIR$/server/testsite" />
       <recent name="$PROJECT_DIR$/server/testsite/testsite" />
-      <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templatetags" />
     </key>
   </component>
   <component name="RunManager" selected="Python.ScheduleServer">

@@ -7,7 +7,7 @@ from corona.GPS_Reader_Saver import get_gps_value
 from corona.NewsCrawling_test import news
 # Create your views here.
 def test(request):
-    return render(request,'corona/index.html')
+    return render(request,'corona/main.html')
 
 def codetest(request):
     return render(request,'corona/read_exel_file.html')
@@ -18,10 +18,8 @@ def get_gps(request):
 def get_news(request,query):
     return HttpResponse(news(query))
 
-def login(request):
-    return render(request,'corona/login.html')
-def test(request):
-    return render(request,'corona/test.html')
+def index(request):
+    return render(request,'corona/index.html')
 
 def logindb(request):
     login=Login.objects.all()
