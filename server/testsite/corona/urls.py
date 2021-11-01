@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     path('python/', views.codetest, name='pythoncodetest'),
-    path('test/',views.test,name='test'),
     path('', views.index, name='login'),
     path('news/<str:query>',views.get_news,name="news"),
     path('gps/', views.get_gps, name="get_gps_value"),

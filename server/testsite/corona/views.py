@@ -6,8 +6,6 @@ from django.db import connection
 from corona.GPS_Reader_Saver import get_gps_value
 from corona.NewsCrawling_test import news
 # Create your views here.
-def test(request):
-    return render(request,'corona/main.html')
 
 def codetest(request):
     return render(request,'corona/read_exel_file.html')

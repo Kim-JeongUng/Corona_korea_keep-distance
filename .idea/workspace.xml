@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd3b11c1-fa61-40a1-8fed-655f6657d489" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/calendar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/main.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/testsite/corona/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/testsite/corona/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/static/css/main/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/static/css/main/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/testsite/testsite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/testsite/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
