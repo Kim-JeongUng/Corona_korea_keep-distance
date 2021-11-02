@@ -11,7 +11,7 @@ import os
 #date = date.replace(':', '시') + '분'
 def news(query):
     query = query + ' + 코로나 | 확진 | 백신'
-    news_num = 10#뉴스 개수 default 10
+    news_num = 5#뉴스 개수 default 10
     query = query.replace(' ', ' ')
 
     news_url = 'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={}'
@@ -36,30 +36,32 @@ def news(query):
 
         area2_list = [li.find('div', {'class': 'news_wrap api_ani_send'}) for li in li_list]
         img_list = [area.select_one('div > a > img') for area in area2_list]
-
         for n in a_list[:min(len(a_list), news_num - idx)]:
-            news_dict[idx] = {'title': n.get('title'),
-                              'url': n.get('href')}
-            idx += 1
-        try:
-            for n in img_list[:min(len(img_list), news_num - idx2)]:
+            try:
+                news_dict[idx] = {'title': n.get('title'),
+                                  'url': n.get('href')}
+                idx += 1
+            except:
+                news_dict2[idx] = {'title': "none", 'url': "none"}
+                idx += 1
+
+        for n in img_list[:min(len(img_list), news_num - idx2)]:
+            try:
                 news_dict2[idx2] = {'img': n.get('src')}
                 idx2 += 1
-        except:
-            news_dict2[idx2] = {'img':"none"}
+            except:
+                news_dict2[idx2] = {'img': "none"}
+                idx2 += 1
+
+
         cur_page += 1
 
     news_df = DataFrame(news_dict).T
     news_df2 = DataFrame(news_dict2).T
 
     for x in range(0, news_num):
-        print("사진 : ", news_dict2[x]['img'])
         newslist.append("<img src=" + str(news_dict2[x]['img']) + "><br>")
-        print("제목 : ", news_dict[x]['title'])
         newslist.append("<a href=" + str(news_dict[x]['url'])+">"+str(news_dict[x]['title']) + "</a><br>")
-        print("링크 : ", news_dict[x]['url'])
-
-        print("===================================================================================")
 
     return newslist
 
