@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="cd3b11c1-fa61-40a1-8fed-655f6657d489" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/calendar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -54,6 +55,9 @@
 =======
 >>>>>>> parent of 1c10ca46 (update 1104)
     </list>
+=======
+    <list default="true" id="cd3b11c1-fa61-40a1-8fed-655f6657d489" name="Default Changelist" comment="" />
+>>>>>>> parent of ff45fdc7 (update 1104)
 =======
     <list default="true" id="cd3b11c1-fa61-40a1-8fed-655f6657d489" name="Default Changelist" comment="" />
 >>>>>>> parent of ff45fdc7 (update 1104)
@@ -110,8 +114,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="RunManager" selected="Python.ScheduleServer">
     <configuration name="CovidPatientRoute" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+=======
+  <component name="RunManager" selected="Python.ScheduleServer">
+    <configuration name="KeepDistance" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+>>>>>>> parent of ff45fdc7 (update 1104)
 =======
   <component name="RunManager" selected="Python.ScheduleServer">
     <configuration name="KeepDistance" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -267,6 +276,9 @@
         <item itemvalue="Python.NewsCrawling_test" />
         <item itemvalue="Python.NewsCrawling" />
         <item itemvalue="Python.KeepDistance" />
+<<<<<<< HEAD
+>>>>>>> parent of ff45fdc7 (update 1104)
+=======
 >>>>>>> parent of ff45fdc7 (update 1104)
       </list>
     </recent_temporary>
