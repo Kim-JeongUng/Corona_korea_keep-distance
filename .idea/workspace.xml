@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" afterDir="false" />
 =======
@@ -37,6 +38,8 @@
 >>>>>>> parent of 425b77e8 (update)
 =======
 >>>>>>> parent of 1c10ca46 (update 1104)
+=======
+>>>>>>> parent of 29aae208 (11/4)
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,8 +66,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/server/testsite/corona" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+=======
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/pythonProject" />
+>>>>>>> parent of 29aae208 (11/4)
 =======
     <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/pythonProject" />
 >>>>>>> parent of 29aae208 (11/4)
@@ -83,6 +90,7 @@
       <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templates\corona" />
     </key>
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   <component name="RunManager" selected="Python.ScheduleServer">
@@ -137,6 +145,10 @@
   <component name="RunManager">
     <configuration name="GPS_Reader_Saver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
 >>>>>>> parent of 29aae208 (11/4)
+=======
+  <component name="RunManager">
+    <configuration name="GPS_Reader_Saver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+>>>>>>> parent of 29aae208 (11/4)
       <module name="Corona_korea_keep-distance" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -161,11 +173,15 @@
       <list>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <item itemvalue="Python.ScheduleServer" />
         <item itemvalue="Python.CovidPatientRoute" />
         <item itemvalue="Python.Main" />
         <item itemvalue="Python.NewsCrawling_test" />
         <item itemvalue="Python.NewsCrawling" />
+=======
+        <item itemvalue="Python.GPS_Reader_Saver" />
+>>>>>>> parent of 29aae208 (11/4)
 =======
         <item itemvalue="Python.GPS_Reader_Saver" />
 >>>>>>> parent of 29aae208 (11/4)
@@ -199,6 +215,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -214,6 +231,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+=======
+>>>>>>> parent of 29aae208 (11/4)
 =======
 >>>>>>> parent of 29aae208 (11/4)
 =======

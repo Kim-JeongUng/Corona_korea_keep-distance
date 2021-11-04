@@ -23,8 +23,11 @@ urlpatterns = [
     path('gps/<str:user_lng>/<str:user_lat>',include('corona.urls')),
     path('admin/', admin.site.urls),
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     path('news/',include('corona.urls')),
     path('test/',include('corona.urls')),
 >>>>>>> parent of 425b77e8 (update)
+=======
+>>>>>>> parent of 29aae208 (11/4)
 ]
