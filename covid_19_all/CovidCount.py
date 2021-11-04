@@ -37,7 +37,7 @@ def getCovidKR(end_day, start_day):
 
 
 # 전국 코로나 신규 확진자
-def CovidAll() -> object:
+def CovidAll():
     print("%s기준 신규 확진자 및 누적 확진자" % (dd['response']['body']['items']['item'][0]["stdDay"]))
 
     i = len(dd['response']['body']['items']['item'])

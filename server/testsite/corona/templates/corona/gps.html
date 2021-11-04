@@ -1,23 +1,19 @@
 <div id="id_div">
-    <p id="location"></p>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript">
+    <p>--------------------------------</p>
+    <script>
         function get_geo(){
             if(!!navigator.geolocation){
                 navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
             }
             else{
-                alert("위치 확인 불가");
+                alert("잘못됨");
             }
         }
         function successCallback(position){
             var lat = position.coords.latitude;
             var lng = position.coords.longitude;
-            var url = "gps/"+lng+"/"+lat;
-            var result = $.get(url, function(data){
-                document.getElementById("location").innerHTML = data;
-	            });
-            //location.href=lng+"/"+lat;
+            alert("hello");
+            location.href=lng+"/"+lat;
         }
         function errorCallback(){
                         alert("error");

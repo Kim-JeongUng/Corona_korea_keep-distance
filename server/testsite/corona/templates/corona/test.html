@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <tabel>
+        <tr>
+            <th>제목</th>
+            <th>내용</th>
+        </tr>
+        {% for Login in logins %}
+        <tr>
+            <td>{{Login.Login_title}}</td>
+            <td>{{Login.Login_content}}</td>
+
+        </tr>
+        {%endfor%}
+    </tabel>
+</head>
+<body>
+
+</body>
+</html>
