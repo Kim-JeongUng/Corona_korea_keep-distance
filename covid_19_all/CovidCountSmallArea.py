@@ -10,8 +10,7 @@ import re
 
 import openpyxl
 
-url = requests.get('http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=13&ncvContSeq=&contSeq=&board_id=&gubun=')
-CovidCountURL = BeautifulSoup(url.content, "html.parser")
+
 
 today = datetime.datetime.now()
 yesterday = today - datetime.timedelta(1)
@@ -23,27 +22,44 @@ wb = openpyxl.load_workbook('CovidCount.xlsx')
 
 
 def save():
-    # 이부분에 이전 Today자료를 YesterDay시트로 옮겨줘야함
-    print("날짜가 바뀌어 데이터를 저장합니다.")
-    # today -> yesterday , 오늘 새로운 데이터 추가
+    try:
+        url = requests.get('http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=13&ncvContSeq=&contSeq=&board_id=&gubun=')
+        CovidCountURL = BeautifulSoup(url.content, "html.parser")
+        today = datetime.datetime.now()
+        yesterday = today - datetime.timedelta(1)
+        today = today.strftime("%Y%m%d")
+        yesterday = yesterday.strftime("%Y%m%d")
 
-    wb.create_sheet(index=0, title=today)
-    for i in range(0, 18, 1):
-        regionData = CovidCountURL.select("#zone_popup" + str(i) + " > div > table > tbody > tr")
+        wb = openpyxl.load_workbook('CovidCount.xlsx')
+        # 이부분에 이전 Today자료를 YesterDay시트로 옮겨줘야함
+        print("날짜가 바뀌어 데이터를 저장합니다.")
+        # today -> yesterday , 오늘 새로운 데이터 추가
 
-        for rgn in regionData:
-            # 콤마 제거
-            rgn = rgn.text.replace(',', '')
-            data = {
-                'date': [today],
-                'region': [rgn],
-            }
-            # 엑셀 저장
-            td_sheet = wb[today]
-            td_sheet.append([rgn])
-            wb.save('CovidCount.xlsx')
+        wb.create_sheet(index=0, title=today)
+        for i in range(0, 18, 1):
+            regionData = CovidCountURL.select("#zone_popup" + str(i) + " > div > table > tbody > tr")
+
+            for rgn in regionData:
+                # 콤마 제거
+                rgn = rgn.text.replace(',', '')
+                data = {
+                    'date': [today],
+                    'region': [rgn],
+                }
+                # 엑셀 저장
+                td_sheet = wb[today]
+                td_sheet.append([rgn])
+                wb.save('CovidCount.xlsx')
+        print("Save OK")
+    except:
+        print("Save Error")
 
 def CovidCountSave():
+    today = datetime.datetime.now()
+    yesterday = today - datetime.timedelta(1)
+    today = today.strftime("%Y%m%d")
+    yesterday = yesterday.strftime("%Y%m%d")
+
     try:
         # 데이터 파일의 첫번째 인덱스 시트의 값과 오늘 날짜 비교, 다르면 저장
         if int(wb.sheetnames[0]) != int(today):
@@ -59,12 +75,20 @@ def CovidCountSave():
         state = -1
 
     # state -1 : 오류(파일없음 등) / 0 : 데이터의 변화 없음 저장안함 / 1 : 새로운 데이터를 저장함
+    print(state, datetime.datetime.now())
     return state
 
 
 def find(area):
-    td_sheet = wb[today]        # 오늘 시트
-    ys_sheet = wb[yesterday]    # 전날 시트
+    try:
+        td_sheet = wb[today]        # 오늘 시트
+    except:
+        td_sheet = wb[wb.sheetnames[0]]
+    try:
+        ys_sheet = wb[yesterday]    # 전날 시트
+    except:
+        #print("전날 기록이 없어 부정확한 자료입니다.")
+        ys_sheet = wb[wb.sheetnames[1]]
 
     for i in ys_sheet.rows:
         if area in i[0].value:
@@ -84,7 +108,9 @@ def find(area):
 def __init__():
     CovidCountSave()
 
-
+#CovidCountSave()
+#print(find("원주시"))
+#print(find("춘천시"))
 ''' 
     서버에선 다음을 실행해야함 
     CovidCountSave()
