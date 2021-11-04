@@ -4,10 +4,19 @@
     <list default="true" id="cd3b11c1-fa61-40a1-8fed-655f6657d489" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" afterDir="false" />
 =======
 >>>>>>> parent of 29aae208 (11/4)
+=======
+      <change beforePath="$PROJECT_DIR$/covid_19_all/CovidCount.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/CovidCount.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid_19_all/CovidPatientRoute.py" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/CovidPatientRoute.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid_19_all/ScheduleServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/ScheduleServer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid_19_all/areaLog.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/areaLog.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/areaLog.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/areaLog.xlsx" afterDir="false" />
+>>>>>>> parent of 1c10ca46 (update 1104)
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
