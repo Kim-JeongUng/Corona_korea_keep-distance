@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd3b11c1-fa61-40a1-8fed-655f6657d489" name="Default Changelist" comment="" />
+    <list default="true" id="cd3b11c1-fa61-40a1-8fed-655f6657d489" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid_19_all/CovidCount.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/CovidCount.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid_19_all/CovidPatientRoute.py" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/CovidPatientRoute.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid_19_all/ScheduleServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/ScheduleServer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid_19_all/areaLog.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/areaLog.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/areaLog.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/areaLog.xlsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,8 +55,8 @@
       <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templatetags" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.ScheduleServer">
-    <configuration name="KeepDistance" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.CovidPatientRoute">
+    <configuration name="CovidPatientRoute" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Corona_korea_keep-distance" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -60,7 +68,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/covid_19_all/KeepDistance.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/covid_19_all/CovidPatientRoute.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,17 +164,17 @@
     <list>
       <item itemvalue="Python.NewsCrawling" />
       <item itemvalue="Python.NewsCrawling_test" />
-      <item itemvalue="Python.KeepDistance" />
       <item itemvalue="Python.Main" />
       <item itemvalue="Python.ScheduleServer" />
+      <item itemvalue="Python.CovidPatientRoute" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ScheduleServer" />
+        <item itemvalue="Python.CovidPatientRoute" />
         <item itemvalue="Python.Main" />
+        <item itemvalue="Python.ScheduleServer" />
         <item itemvalue="Python.NewsCrawling_test" />
         <item itemvalue="Python.NewsCrawling" />
-        <item itemvalue="Python.KeepDistance" />
       </list>
     </recent_temporary>
   </component>
