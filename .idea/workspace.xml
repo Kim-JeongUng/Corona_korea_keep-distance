@@ -51,7 +51,7 @@
       <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templatetags" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.CovidPatientRoute">
+  <component name="RunManager" selected="Python.ScheduleServer">
     <configuration name="CovidPatientRoute" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Corona_korea_keep-distance" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -166,9 +166,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ScheduleServer" />
         <item itemvalue="Python.CovidPatientRoute" />
         <item itemvalue="Python.Main" />
-        <item itemvalue="Python.ScheduleServer" />
         <item itemvalue="Python.NewsCrawling_test" />
         <item itemvalue="Python.NewsCrawling" />
       </list>
