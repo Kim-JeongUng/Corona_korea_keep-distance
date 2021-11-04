@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cd3b11c1-fa61-40a1-8fed-655f6657d489" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/JenanMessage.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,11 +156,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.CovidPatientRoute" />
+      <item itemvalue="Python.Main" />
       <item itemvalue="Python.NewsCrawling" />
       <item itemvalue="Python.NewsCrawling_test" />
-      <item itemvalue="Python.Main" />
       <item itemvalue="Python.ScheduleServer" />
-      <item itemvalue="Python.CovidPatientRoute" />
     </list>
     <recent_temporary>
       <list>
