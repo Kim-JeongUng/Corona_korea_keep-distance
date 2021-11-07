@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd3b11c1-fa61-40a1-8fed-655f6657d489" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/testsite/static/js/main/data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/testsite/static/js/main/gps.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/areaLog.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/areaLog.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/corona/NewsCrawling_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/NewsCrawling_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/gps.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/gps.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/corona/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/corona/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/testsite/testsite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/testsite/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +34,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1xLdQnGnTj0kYWCEx4ofVpRHU8G" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,21 +51,22 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/testsite/corona" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/testsite/static/js/main" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\static\js\main" />
+      <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templates\corona" />
       <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona" />
       <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templatetags" />
-      <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templates\corona" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\static\js\main" />
+      <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templates\corona" />
       <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona" />
       <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templates" />
       <recent name="$PROJECT_DIR$/server/testsite" />
-      <recent name="$PROJECT_DIR$/server/testsite/testsite" />
-      <recent name="C:\Users\swag0\Desktop\Corona_korea_keep-distance\server\testsite\corona\templatetags" />
     </key>
   </component>
   <component name="RunManager" selected="Python.CovidPatientRoute">

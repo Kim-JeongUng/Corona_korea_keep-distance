@@ -5,9 +5,15 @@
 		{% block content %}
 		<title>Corona Integrated Information System</title>
 		<meta charset="utf-8" />
+
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{% static 'css/main/main.css' %}">
-	</head>
+		<script src="http://code.jquery.com/jquery-latest.js"></script><! jquery 이용해야함 >
+        <script type="text/javascript" src="{% static 'js/main/gps.js' %}"></script><! gps값 >
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="./data.js"></script>
+</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
@@ -16,9 +22,10 @@
 				<!-- Header -->
 					<header id="header">
 						<h1><a href="main.html">Covid-19 Integrated Information System</a></h1>
+
 						<div class="search">
 
-							<input type="text" id="inputArea" onchange="areaChange">
+							<input type="text" id="searchInput" placeholder="지역검색" style="margin-left: 20px; width: 200px;">
 						  </div>
 						<nav class="login">
 							<ul>
@@ -42,8 +49,10 @@
 						<article class="post">
 							<header>
 								<div class="title">
-									<h2>{% include "./gps.html" %}</h2>
-
+									<h2>
+									<div id="location">
+									</div>
+									</h2>
 								</div>
 
 							</header>
@@ -69,21 +78,10 @@
 										<h2><a href="single.html">뉴스 이름</a></h2>
 										<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
 									</div>
-
 								</header>
-								<a href="single.html" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-								{% include "./news.html" %}
-								<footer>
-									<ul class="actions">
-										<li><a href="single.html" class="button large">해당 기사 들어가기</a></li>
-									</ul>
-									<ul class="stats">
-										<li><a href="#">General</a></li>
-										<li><a href="#" class="icon solid fa-heart">28</a></li>
-										<li><a href="#" class="icon solid fa-comment">128</a></li>
-									</ul>
-								</footer>
+
 							</article>
+						{% include "./news.html" %}
 
 
 						<!-- Post -->

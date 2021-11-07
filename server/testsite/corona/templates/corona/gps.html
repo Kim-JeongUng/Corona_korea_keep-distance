@@ -1,5 +1,4 @@
-<div id="id_div">
-    <p id="location"></p>
+<div id="location">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
         function get_geo(){
@@ -17,7 +16,6 @@
             var result = $.get(url, function(data){
                 document.getElementById("location").innerHTML = data;
 	            });
-            //location.href=lng+"/"+lat;
         }
         function errorCallback(){
                         alert("error");

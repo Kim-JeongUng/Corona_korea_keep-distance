@@ -60,8 +60,18 @@ def news(query):
     news_df2 = DataFrame(news_dict2).T
 
     for x in range(0, news_num):
-        newslist.append("<img src=" + str(news_dict2[x]['img']) + "><br>")
-        newslist.append("<a href=" + str(news_dict[x]['url'])+">"+str(news_dict[x]['title']) + "</a><br>")
+        newslist.append("""
+        <article class="post">
+        <header>
+            <div class="meta">
+            <a href="#"><img src="{:}" alt="" /></a>
+									</div>
+									<div class="title">
+										<h2><a href="{:}">{:}</a></h2>
+									</div>
+        </header>
+        </article>
+        """.format(str(news_dict2[x]['img']),str(news_dict[x]['url']),str(news_dict[x]['title'])))
 
     return newslist
 

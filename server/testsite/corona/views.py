@@ -11,7 +11,7 @@ def codetest(request):
     return render(request,'corona/read_exel_file.html')
 
 def get_gps(request):
-    return render(request,'corona/gps.html')
+    return render(request,'corona/gps.js')
 
 def get_news(request,query):
     return HttpResponse(news(query))
@@ -26,3 +26,6 @@ def logindb(request):
 
 def get_location(request,user_lng,user_lat):
     return HttpResponse(get_gps_value(user_lng,user_lat))
+
+def gpstest(request):
+    return render(request,'corona/test.html')
