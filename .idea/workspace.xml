@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd3b11c1-fa61-40a1-8fed-655f6657d489" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/testsite/static/js/main/data.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/testsite/static/js/main/gps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Corona_korea_keep-distance.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Corona_korea_keep-distance.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/testsite/areaLog.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/areaLog.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/testsite/corona/NewsCrawling_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/NewsCrawling_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/gps.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/gps.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/testsite/corona/templates/corona/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/templates/corona/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/testsite/corona/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/testsite/corona/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/corona/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/testsite/testsite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/testsite/testsite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid_19_all/CovidPatientRoute.py" beforeDir="false" afterPath="$PROJECT_DIR$/covid_19_all/CovidPatientRoute.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -52,7 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/server/testsite/static/js/main" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -112,27 +104,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="NewsCrawling" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Corona_korea_keep-distance" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\swag0\anaconda3\envs\covid\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/server/testsite/corona" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server/testsite/corona/NewsCrawling.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="NewsCrawling_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Corona_korea_keep-distance" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -175,20 +146,41 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="governmentNews" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Corona_korea_keep-distance" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/server/testsite/corona" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server/testsite/corona/governmentNews.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.CovidPatientRoute" />
       <item itemvalue="Python.Main" />
-      <item itemvalue="Python.NewsCrawling" />
       <item itemvalue="Python.NewsCrawling_test" />
       <item itemvalue="Python.ScheduleServer" />
+      <item itemvalue="Python.governmentNews" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.CovidPatientRoute" />
+        <item itemvalue="Python.governmentNews" />
         <item itemvalue="Python.Main" />
         <item itemvalue="Python.ScheduleServer" />
         <item itemvalue="Python.NewsCrawling_test" />
-        <item itemvalue="Python.NewsCrawling" />
       </list>
     </recent_temporary>
   </component>
@@ -214,6 +206,44 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1899" height="399" key="GridCell.Tab.0.bottom" timestamp="1636360756460">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="399" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1636360756460" />
+    <state width="1899" height="399" key="GridCell.Tab.0.center" timestamp="1636360756460">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="399" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1636360756460" />
+    <state width="1899" height="399" key="GridCell.Tab.0.left" timestamp="1636360756460">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="399" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1636360756460" />
+    <state width="1899" height="399" key="GridCell.Tab.0.right" timestamp="1636360756460">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="399" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1636360756460" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1636356008019">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1636356008019" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1636356008019">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1636356008019" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1636356008019">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1636356008019" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1636356008019">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1636356008019" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1636353703559">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1636353703559" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
