@@ -21,21 +21,14 @@ def Junsu(level):
 
     if level == 1:
         print("사적 모임 가능")
-        print("유흥시설 운영시간 제한 없음")
+        print("유흥시설 24시 이후 운영제한")
         print("식당,카페 운영시간 제한 없음")
-        print("코인노래방 운영시간 제한 없음")
+        print("코인노래방 접종증명 시 운영시간 제한 및 인원 제한 없음")
         print("PC방 제한없음")
         print("헬스장 제한없음")
+        print("영화관 일행 간 한칸 띄우기")
 
     if level == 2:
-        print("사적 모임 가능")
-        print("유흥시설 24시 이후 운영제한")
-        print("식당,카페 24시 이후 포장 배달만 허용")
-        print("코인노래방 24시 이후 운영제한")
-        print("PC방 제한없음")
-        print("헬스장 제한없음")
-
-    if level == 3:
         print("4인까지 모임가능")
         print("유흥시설 22시 이후 운영제한")
         print("식당,카페 22시 이후 포장 배달만 허용")
@@ -43,7 +36,7 @@ def Junsu(level):
         print("PC방 제한없음")
         print("헬스장 제한없음")
 
-    if level == 4:
+    if level == 3:
         print("18시 이후 2명까지 모임가능, 18시 이전 4인까지 모임가능")
         print("유흥시설 집합금지")
         print("식당,카페 22시 이후 포장 배달만 허용")
@@ -55,7 +48,7 @@ def Junsu(level):
 
 # 전체지역 코로나 단계 출력
 def KeepDistanceAllArea():
-    target = 4
+    target = 3
     print(soup.find(attrs={'class': 'timetable'}).text + " 사회적 거리두기 단계\n\n")
     for descript in soup.find_all("p", "rssd_descript"):
         print(target, "단계")
