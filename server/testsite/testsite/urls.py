@@ -16,12 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-
 urlpatterns = [
     path('', include('corona.urls')),
     path('python/', include('corona.urls')),
     path('gps/', include('corona.urls')),
     path('gps/<str:user_lng>/<str:user_lat>',include('corona.urls')),
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
     path('news/',include('corona.urls')),
+    path('test/',include('corona.urls')),
+>>>>>>> parent of 425b77e8 (update)
+=======
+>>>>>>> parent of 29aae208 (11/4)
 ]

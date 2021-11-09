@@ -19,8 +19,6 @@ import KeepDistance
 # 재난문자 API  #jenan_all(), jenan_area(area)
 import JenanMessage
 
-CovidCountSmallArea.CovidCountSave()
-
 # 행정구역 엑셀읽어오기
 df = pd.read_excel('행정구역.xlsx')
 # 전체 코로나 상황 출력
