@@ -26,6 +26,7 @@ def Junsu(level):
         print("코인노래방 운영시간 제한 없음")
         print("PC방 제한없음")
         print("헬스장 제한없음")
+       
 
     if level == 2:
         print("사적 모임 가능")

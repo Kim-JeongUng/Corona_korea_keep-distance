@@ -10,8 +10,6 @@ import re
 
 import openpyxl
 
-
-
 today = datetime.datetime.now()
 yesterday = today - datetime.timedelta(1)
 today = today.strftime("%Y%m%d")
@@ -20,10 +18,10 @@ yesterday = yesterday.strftime("%Y%m%d")
 wb = openpyxl.load_workbook('CovidCount.xlsx')
 
 
-
 def save():
     try:
-        url = requests.get('http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=13&ncvContSeq=&contSeq=&board_id=&gubun=')
+        url = requests.get(
+            'http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=13&ncvContSeq=&contSeq=&board_id=&gubun=')
         CovidCountURL = BeautifulSoup(url.content, "html.parser")
         today = datetime.datetime.now()
         yesterday = today - datetime.timedelta(1)
@@ -54,6 +52,7 @@ def save():
     except:
         print("Save Error")
 
+
 def CovidCountSave():
     today = datetime.datetime.now()
     yesterday = today - datetime.timedelta(1)
@@ -81,13 +80,13 @@ def CovidCountSave():
 
 def find(area):
     try:
-        td_sheet = wb[today]        # 오늘 시트
+        td_sheet = wb[today]  # 오늘 시트
     except:
         td_sheet = wb[wb.sheetnames[0]]
     try:
-        ys_sheet = wb[yesterday]    # 전날 시트
+        ys_sheet = wb[yesterday]  # 전날 시트
     except:
-        #print("전날 기록이 없어 부정확한 자료입니다.")
+        # print("전날 기록이 없어 부정확한 자료입니다.")
         ys_sheet = wb[wb.sheetnames[1]]
 
     for i in ys_sheet.rows:
@@ -105,12 +104,82 @@ def find(area):
     return cnt_today
 
 
+# 위험지역 확인
+def findTopDanger(count=10):
+    wb = openpyxl.load_workbook('CovidCount.xlsx')
+    try:
+        td_sheet = wb[today]  # 오늘 시트
+    except:
+        td_sheet = wb[wb.sheetnames[0]]
+    try:
+        ys_sheet = wb[yesterday]  # 전날 시트
+    except:
+        # 전날 기록이 없어 부정확한 자료입니다.
+        ys_sheet = wb[wb.sheetnames[1]]
+
+    td_cnt = []
+    ys_cnt = []
+    todayIncrease = []
+    population = []
+    incidenceRate = []  # 발생률
+    areaLen = 249
+
+    # 지역별 발생 수
+    for i in td_sheet.rows:
+        td_cnt.append(int(re.findall("\d+", i[0].value)[0]))
+    for i in ys_sheet.rows:
+        ys_cnt.append(int(re.findall("\d+", i[0].value)[0]))
+
+    # 증가 수치
+    for i in range(areaLen):
+        todayIncrease.append((td_cnt[i] - ys_cnt[i]))
+
+    population_sheet = wb[wb.sheetnames[-1]]
+
+    for i in population_sheet.rows:
+        population.append(i[2].value)
+
+    for i in range(areaLen):  # 10000명당 발생률
+        incidenceRate.append(todayIncrease[i] / population[i] * 10000)
+
+    tempIncidenceRate = incidenceRate
+    tempIncidenceRate = sorted(tempIncidenceRate)
+    tempIncidenceRate.reverse()
+
+    tempIndex = []
+    for i in incidenceRate:
+        tempIndex.append(tempIncidenceRate.index(i) + 1)
+
+    # 가장 많은 발생 count 갯수만큼 반환
+    # 도 / 시,구 / 만명당 발생률
+
+    returnMsg = []
+
+    for i in range(0, count):
+        returnMsg.append("""
+        <article class="post">
+            <header>
+                <div class="meta">
+                     <h2>{:}</h2>
+                     <h2>{:}</h2>
+                     <h3>{:.2f}</h3>
+                </div>
+            </header>
+            </article>
+        """.format(population_sheet[tempIndex.index(i + 1)][0].value, population_sheet[tempIndex.index(i + 1)][1].value,
+                   incidenceRate[tempIndex.index(i + 1)]))
+
+    return returnMsg
+
+
 def __init__():
     CovidCountSave()
 
-#CovidCountSave()
-#print(find("원주시"))
-#print(find("춘천시"))
+
+print(findTopDanger())
+# CovidCountSave()
+# print(find("원주시"))
+# print(find("춘천시"))
 ''' 
     서버에선 다음을 실행해야함 
     CovidCountSave()
