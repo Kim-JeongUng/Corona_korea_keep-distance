@@ -5,6 +5,7 @@ from .models import Login
 from django.db import connection
 from corona.GPS_Reader_Saver import get_gps_value
 from corona.NewsCrawling_test import news
+from corona.JenanMessage import jenan_area
 # Create your views here.
 
 def codetest(request):
@@ -15,6 +16,9 @@ def get_gps(request):
 
 def get_news(request,query):
     return HttpResponse(news(query))
+
+def jenan(request,area):
+    return HttpResponse(jenan_area(area))
 
 def index(request):
     return render(request,'corona/index.html')
