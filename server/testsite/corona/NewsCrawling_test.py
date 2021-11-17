@@ -67,7 +67,7 @@ def news(query):
             <a href="#"><img src="{:}" alt="" /></a>
 									</div>
 									<div class="title">
-										<h2><a href="{:}">{:}</a></h2>
+										<h3><a href="{:}">{:}</a></h3>
 									</div>
         </header>
         </article>

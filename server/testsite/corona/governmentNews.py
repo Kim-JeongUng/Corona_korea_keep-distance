@@ -33,5 +33,3 @@ def Gnews():
             """.format(url[x],title[x].text.replace('\xa0',''), msg[x].text.replace('\xa0','')))
 
     return newslist
-
-print(Gnews())
