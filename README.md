@@ -29,6 +29,9 @@
  내가 갈 지역의 날씨를 검색할 땐 손쉽게 날씨 앱을 켜서 지역을 검색합니다. 여러곳의 정보를 취합할 필요도 없습니다. 한 앱안에서 모든 구상이 가능합니다.
  날씨앱을 쉽게 검색하는 것처럼 **COSY CHECK**앱을 통해 가능한 많은 코로나 관련 정보를 깔끔한 UI로 사용자에게 쉽고 정확하게 전달하는 것이 궁극적인 목표입니다.
 
+# 기술 스텍
+<p align="left"></a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-original.svg" alt="django" width="40" height="40"/> </a><a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a>  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/>  <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> </p>
+   
 # 제작 진행일정
 8월 ~ 9월 말  : 기능구현 및 웹서버 <br>
     ~ 10월 말 : UI 디자인 및 웹 완성 <br>
