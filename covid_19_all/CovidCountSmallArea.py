@@ -1,4 +1,6 @@
 # 소분류 지역별 코로나 확진자
+import operator
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -171,12 +173,81 @@ def findTopDanger(count=10):
 
     return returnMsg
 
+# 비위험지역 확인
+def findLowDanger(count=10):
+    wb = openpyxl.load_workbook('CovidCount.xlsx')
+    try:
+        td_sheet = wb[today]  # 오늘 시트
+    except:
+        td_sheet = wb[wb.sheetnames[0]]
+    try:
+        ys_sheet = wb[yesterday]  # 전날 시트
+    except:
+        # 전날 기록이 없어 부정확한 자료입니다.
+        ys_sheet = wb[wb.sheetnames[1]]
+
+    td_cnt = []
+    ys_cnt = []
+    todayIncrease = []
+    population = []
+    incidenceRate = []  # 발생률
+    areaLen = 249
+
+    # 지역별 발생 수
+    for i in td_sheet.rows:
+        td_cnt.append(int(re.findall("\d+", i[0].value)[0]))
+    for i in ys_sheet.rows:
+        ys_cnt.append(int(re.findall("\d+", i[0].value)[0]))
+
+    # 증가 수치
+    for i in range(areaLen):
+        todayIncrease.append((td_cnt[i] - ys_cnt[i]))
+
+    population_sheet = wb[wb.sheetnames[-1]]
+
+    for i in population_sheet.rows:
+        population.append(i[2].value)
+
+    zeroIncrease = []
+    for i in range(areaLen):  # 10000명당 발생률
+        if todayIncrease[i] == 0: # 0명 발생지역
+            zeroIncrease.append(population[i])
+
+    TempzeroIncrease = zeroIncrease
+    TempzeroIncrease = sorted(TempzeroIncrease)
+    TempzeroIncrease.reverse()
+
+
+    # 가장 많은 발생 count 갯수만큼 반환
+    # 도 / 시,구 / 만명당 발생률
+
+    returnMsg = []
+    TempzeroIncrease[0]
+
+
+    for T in TempzeroIncrease:
+        for i in wb.active.rows:
+            if str(T) in str(i[2].value):
+                returnMsg.append("""
+                <article class="post">
+                    <header>
+                        <div class="meta">
+                             <h2>{:}</h2>
+                             <h2>{:}</h2>
+                             <h3>{:}</h3>
+                        </div>
+                    </header>
+                    </article>
+                """.format(i[0].value, i[1].value,
+                           i[2].value))
+
+    return returnMsg
 
 def __init__():
     CovidCountSave()
 
 
-print(findTopDanger())
+print(findLowDanger())
 # CovidCountSave()
 # print(find("원주시"))
 # print(find("춘천시"))
