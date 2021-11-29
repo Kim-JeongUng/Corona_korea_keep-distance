@@ -11,7 +11,7 @@ import os
 #date = date.replace(':', '시') + '분'
 def news(query):
     query = query + ' + 코로나 | 확진 | 백신'
-    news_num = 5#뉴스 개수 default 10
+    news_num = 10#뉴스 개수 default 10
     query = query.replace(' ', ' ')
 
     news_url = 'https://search.naver.com/search.naver?where=news&sm=tab_jum&query={}'
@@ -60,6 +60,8 @@ def news(query):
     news_df2 = DataFrame(news_dict2).T
 
     for x in range(0, news_num):
+        if(str(news_dict2[x]['img'])=='none'):
+            news_dict2[x]['img'] = "https://user-images.githubusercontent.com/82865325/143685603-f168ff67-6f3d-425b-84d3-8b93d2b6a69a.png"
         newslist.append("""
         <article class="post">
         <header>
