@@ -11,8 +11,8 @@ def GetPatientRoute():
         url = requests.get(
             'http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=12&ncvContSeq=&contSeq=&board_id=&gubun=')
         soup = BeautifulSoup(url.content, "html.parser")
-        print(soup)
         route = soup.select("#content > div > div.box_line2 > div > div > table > tbody > tr >td")
+    
         for i in range(0, len(route), 1):
             route[i] = route[i].text.replace("소독완료", "").replace("\n", " ")[1:-2]
 

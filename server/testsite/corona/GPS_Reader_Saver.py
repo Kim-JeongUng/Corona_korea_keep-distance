@@ -37,7 +37,6 @@ def get_gps_value(user_lng,user_lat):
     headers = {"Authorization": "KakaoAK b3c7423bf62d904aad46bea35d6db181"} # API KEY
     api_test = requests.get(url, headers=headers)
     url_text = json.loads(api_test.text)
-    print(url_text)
     my_region2 = url_text['documents'][0]['region_2depth_name']
     my_region3 = url_text['documents'][0]['region_3depth_name']
 

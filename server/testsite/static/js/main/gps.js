@@ -1,4 +1,3 @@
-var gps_result;
 function get_geo(){
     if(!!navigator.geolocation){
         navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
@@ -13,7 +12,7 @@ function successCallback(position){
     var url = "gps/"+lng+"/"+lat;
     var result = $.get(url, function(data){
         document.getElementById("location").innerHTML = data;
-        gps_result = data;
+        return data;
         });
 }
 function errorCallback(){

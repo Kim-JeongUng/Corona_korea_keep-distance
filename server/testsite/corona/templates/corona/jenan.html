@@ -1,12 +1,29 @@
 <div id="mini-posts">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
-            url = "jenan/춘천시";
-            var result = $.get(url, function(data){
+    function get_geo(){
+        if(!!navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
+        }
+        else{
+            console.log("위치확인불가");
+        }
+    }
+    function successCallback(position){
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+        var url = "gps/"+lng+"/"+lat;
+        var result = $.get(url, function(data){
+                url = "jenan/"+data;
+                var result = $.get(url, function(data){
                 document.getElementById("mini-posts").innerHTML = data;
 	            });
-
+            });
+    }
+    function errorCallback(){
+            console.log("에러");
+    }
+    get_geo();
 </script>
-
 
 </div>

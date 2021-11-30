@@ -23,6 +23,8 @@ from .forms import EventForm
 from corona.GPS_Reader_Saver import get_gps_value
 from corona.NewsCrawling_test import news
 from corona.JenanMessage import jenan_area
+from corona.governmentNews import gnews
+from corona.KeepDistance import KeepDistanceAllArea,junsu
 # Create your views here.
 
 
@@ -109,11 +111,13 @@ def event(request, event_id=None):
         return HttpResponseRedirect(reverse('calendar'))
     return render(request, 'corona/event.html', {'form': form})
 
-def get_gps(request):
-    return render(request,'corona/gps.js')
+
 
 def get_news(request,query):
     return HttpResponse(news(query))
+
+def get_gnews(request):
+    return HttpResponse(gnews())
 
 def jenan(request,area):
     return HttpResponse(jenan_area(area))
@@ -121,6 +125,20 @@ def jenan(request,area):
 def index(request):
     return render(request,'corona/index.html')
 
+def news_page(request):
+    return render(request,'corona/news_page.html')
+
+def gnews_page(request):
+    return render(request,'corona/gnews_page.html')
+
+def patientjenan_page(request):
+    return render(request,'corona/patientjenan_page.html')
+
+def junsu(request):
+    return HttpResponse(junsu(1))
+
+def get_gps(request):
+    return render(request,'corona/gps.js')
 
 def get_location(request,user_lng,user_lat):
     return HttpResponse(get_gps_value(user_lng,user_lat))
