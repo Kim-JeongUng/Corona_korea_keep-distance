@@ -64,5 +64,3 @@ def get_gps_value(user_lng,user_lat):
         df.to_excel('areaLog.xlsx')
 
     return ([my_region2+" "+my_region3])
-
-print(get_gps_value(37.2908,127.0076))
