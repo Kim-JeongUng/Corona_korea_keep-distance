@@ -25,7 +25,7 @@ from corona.NewsCrawling_test import news
 from corona.JenanMessage import jenan_area
 from corona.governmentNews import gnews
 # Create your views here.
-
+from django.contrib import auth
 
 def register(request):   #회원가입 페이지를 보여주기 위한 함수
     if request.method == "GET":
@@ -48,21 +48,27 @@ def register(request):   #회원가입 페이지를 보여주기 위한 함수
             return redirect(reverse('lg'))
 
 def users_login(request):
+    res_data={}
+
     if  request.method == 'POST':
         username = request.POST["username"]
         password = request.POST["password"]
-        user = authenticate(username=username, password=password)
+        user = auth.authenticate(request,username=username, password=password)
+
         if user is not None:
-            print("인증성공")
-            #login(request, user)
-            return redirect(reverse('login'))
+            auth.login(request, user)
+            request.session["username"] = username
+            return redirect('/')
         else:
-            print("인증실패")
-    return render(request, "corona/user_login.html")
+            res_data['error']='비밀번호가 달라요!'
+    return render(request, "corona/user_login.html",{'error': 'Username or Password is incorrect.'})
 
 def users_logout(request):
     logout(request)
-    return redirect("users:login")
+    if request.method == 'POST':
+        auth.logout(request)
+        redirect('/')
+    return redirect('/')
 
 class CalendarView(generic.ListView):
     model = Event
@@ -122,7 +128,20 @@ def jenan(request,area):
     return HttpResponse(jenan_area(area))
 
 def index(request):
-    return render(request,'corona/index.html')
+    if request.method == 'POST':
+        k=''
+        k = request.POST.get("loca")
+        context={
+            'k':k
+        }
+        return render(request,'corona/index.html',context=context)
+    else:
+        k=''
+        k = '제주도'
+        context = {
+            'k': k
+        }
+        return render(request, 'corona/index.html', context=context)
 
 def news_page(request):
     return render(request,'corona/news_page.html')
@@ -135,3 +154,37 @@ def get_gps(request):
 
 def get_location(request,user_lng,user_lat):
     return HttpResponse(get_gps_value(user_lng,user_lat))
+
+
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.utils import timezone
+from django.urls import reverse
+from django.core.paginator import Paginator
+from .models import Board
+
+def index1(request):
+    all_boards = Board.objects.all().order_by("-pub_date")  # 모든 데이터 조회, 내림차순(-표시) 조회
+    paginator = Paginator(all_boards, 5)
+    page = int(request.GET.get('page', 1))
+    board_list = paginator.get_page(page)
+
+    return render(request, 'corona/index1.html', {'title': 'Board List', 'board_list': board_list})
+
+def detail(request, board_id):
+    board = Board.objects.get(id=board_id)
+    return render(request, 'corona/detail.html', {'board': board})
+
+def write(request):
+    return render(request, 'corona/write.html')
+
+def write_board(request):
+    b = Board(title=request.POST.get('title'), content=request.POST.get('detail'), author="choi", pub_date=timezone.now())
+    b.save()
+    return HttpResponseRedirect(reverse('index1'))
+
+def create_reply(request, board_id):
+    b = Board.objects.get(id = board_id)
+    b.reply_set.create(comment=request.POST['comment'], rep_date=timezone.now())
+    return HttpResponseRedirect(reverse('detail', args=(board_id,)))
+

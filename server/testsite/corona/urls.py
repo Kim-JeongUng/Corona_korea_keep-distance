@@ -18,4 +18,11 @@ urlpatterns = [
     url(r'^event/new/$', views.event, name='event_new'),
     url(r'^event/edit/(?P<event_id>\d+)/$', views.event, name='event_edit'),
     path('lg/',views.users_login,name='lg'),
+    path('logout/', views.users_logout, name='logout'),
+    path('register/', views.register, name='register'),
+    path('index1/', views.index1, name='index1'),
+    path('<int:board_id>/', views.detail, name='detail'),
+    path('write/', views.write, name='write'),
+    path('write/write_board', views.write_board, name='write_board'),
+    path('<int:board_id>/create_reply', views.create_reply, name='create_reply'),
 ]

@@ -42,7 +42,7 @@ def get_gps_value(user_lng,user_lat):
 
     # GPS 기록저장
 
-    df = pd.read_excel(str(BASE_DIR)+'\\areaLog.xlsx', index_col =[0])
+    df = pd.read_excel(str(BASE_DIR)+'/areaLog.xlsx', index_col =[0])
 
     today = datetime.datetime.now()
     today = today.strftime("%Y%m%d")
