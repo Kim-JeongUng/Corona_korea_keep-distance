@@ -61,6 +61,7 @@ def CovidArea(area):
 
     for val in do:
         dov = val
+    print(dd['response']['body']['items']['item'])
     i = len(dd['response']['body']['items']['item'])
     for a in dd['response']['body']['items']['item']:
         i -= 1

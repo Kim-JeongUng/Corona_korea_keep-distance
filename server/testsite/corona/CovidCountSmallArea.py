@@ -225,9 +225,7 @@ def findLowDanger(count=10):
         for i in wb.active.rows:
             if str(T) in str(i[2].value):
                 returnMsg.append("""
-                             {:}
-                             {:}
-                             {:}
+                             {}{}{}
                 """.format(i[0].value, i[1].value,
                            i[2].value))
 
