@@ -24,6 +24,7 @@ from corona.GPS_Reader_Saver import get_gps_value
 from corona.NewsCrawling_test import news
 from corona.JenanMessage import jenan_area
 from corona.governmentNews import gnews
+from corona.KeepDistance import KeepDistanceAllArea,junsu
 # Create your views here.
 from django.contrib import auth
 
@@ -148,6 +149,12 @@ def news_page(request):
 
 def gnews_page(request):
     return render(request,'corona/gnews_page.html')
+
+def patientjenan_page(request):
+    return render(request,'corona/patientjenan_page.html')
+
+def junsu(request):
+    return HttpResponse(junsu(1))
 
 def get_gps(request):
     return render(request,'corona/gps.js')
