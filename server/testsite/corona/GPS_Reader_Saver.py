@@ -1,8 +1,8 @@
 # GPS로 내 좌표 찾기 구글 geolocation api 사용
 # 내 좌표로 지역 이름 한글화
 
-from django import template#html에서 로드하기 위한 부분
-register = template.Library()#html에서 로드하기 위한 부분
+#from django import template#html에서 로드하기 위한 부분
+#register = template.Library()#html에서 로드하기 위한 부분
 
 
 import requests
@@ -18,7 +18,7 @@ import os
 #LOCATION_API_KEY = os.getenv('AIzaSyCArXnnrT7PhvZUinEuN94BRZfx5Qibyto')
 
 print(os.getcwd())
-@register.simple_tag#html에서 로드하기 위한 부분
+#@register.simple_tag#html에서 로드하기 위한 부분
 def get_gps_value(user_lng,user_lat):
     BASE_DIR = os.getcwd()
     # url = f'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCArXnnrT7PhvZUinEuN94BRZfx5Qibyto'
@@ -65,3 +65,5 @@ def get_gps_value(user_lng,user_lat):
         df.to_excel('areaLog.xlsx')
 
     return ([my_region2+" "+my_region3])
+
+print(get_gps_value(37.2908,127.0076))

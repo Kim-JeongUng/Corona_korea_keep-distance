@@ -63,3 +63,4 @@ def KeepDistanceAllArea():
         target -= 1
         if target < 1:
             break
+KeepDistanceAllArea()

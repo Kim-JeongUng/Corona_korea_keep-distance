@@ -61,6 +61,7 @@ def CovidArea(area):
             Covid.append("누적 확진자:" + dd['response']['body']['items']['item'][i]['defCnt'] + "<br>")
             Covid.append("격리중 환자:" + dd['response']['body']['items']['item'][i]['isolIngCnt'] + "<br>")
     return Covid
+
 if __name__ == "__main__":
     today = datetime.datetime.now()
     yesterday = today - datetime.timedelta(1)
