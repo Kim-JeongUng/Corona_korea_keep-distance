@@ -47,6 +47,11 @@
 
 # DEMO Scene << incomplete >>
 <img width="80%" src="https://user-images.githubusercontent.com/82865325/143685105-4fff0c97-b382-4549-ab02-7976d52dbc5f.png"/>
+- 해당 지역 소분류 확진자 수 및 뉴스 크롤링, GPS인식, 지오코딩, 재난문자, 전국 확진자 수 API 사용
+<br><br>
+<img width="80%" src="https://user-images.githubusercontent.com/82865325/144001468-4a136716-062b-41ae-b10f-9b0631655268.png"/>
+- 시계열 예측방식을 한 코로나 확진자 지수 예측
+
 
 # Crawling DEMO Video << incomplete >>
 https://youtu.be/VhAoHQ4-FvU
