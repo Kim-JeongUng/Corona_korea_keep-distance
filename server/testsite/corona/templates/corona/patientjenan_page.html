@@ -58,16 +58,24 @@
 
 							{% include "./junsu.html" %}
 							<footer>
-								<ul class="actions">
-									<li><a href="single.html" class="button large">지역 바꾸기</a></li>
-								</ul>
+
 
 							</footer>
 						</article>
 
 
 						<!-- Post -->
-						{% include "./jenan.html" %}
+						<table id="route" border="1">
+							<th><h1>확진 경로</h1></th>
+							<tr><td>{% include "./patient.html" %}</td></tr>
+
+						</table>
+						<table id="values" border="1">
+							<th><h1>재난 문자</h1></th>
+							<tr><td>{% include "./jenan.html" %}</td></tr>
+
+						</table>
+
 
 
 						<!-- Post -->

@@ -13,7 +13,6 @@ def GetPatientRoute():
         driver.get('http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=12&ncvContSeq=&contSeq=&board_id=&gubun=')
         soup = BeautifulSoup(driver.page_source, "html.parser")
         route = soup.select("#content > div > div.box_line2 > div > div > table > tbody > tr > td")
-        print(route)
         for i in range(0, len(route), 1):
             route[i] = route[i].text.replace("소독완료", "").replace("\n", " ")
 

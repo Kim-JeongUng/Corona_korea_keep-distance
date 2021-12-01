@@ -27,6 +27,7 @@ from corona.governmentNews import gnews
 from corona.KeepDistance import KeepDistanceAllArea,junsu
 from corona.CovidCount import CovidAll,CovidArea
 from corona.CovidCountSmallArea import find
+from corona.CovidPatientRoute import GetPatientRoute
 # Create your views here.
 
 def register(request):   #회원가입 페이지를 보여주기 위한 함수
@@ -162,6 +163,9 @@ def junsu(request):
 
 def get_gps(request):
     return render(request,'corona/gps.js')
+
+def covidpatient(request):
+    return HttpResponse(GetPatientRoute())
 
 def get_location(request,user_lng,user_lat):
     return HttpResponse(get_gps_value(user_lng,user_lat))
