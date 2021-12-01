@@ -247,7 +247,6 @@ def __init__():
     CovidCountSave()
 
 
-print(findLowDanger())
 # CovidCountSave()
 # print(find("원주시"))
 # print(find("춘천시"))

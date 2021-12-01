@@ -1,34 +1,28 @@
-# 21-12-01 - 김정웅 selenium 사용
+# 확진자 동선 출력 (저장은 ScheduleServer에서 담당)
 
-from bs4 import BeautifulSoup
-from selenium import webdriver
+import openpyxl
 
-# 거리두기 단계 웹 크롤링
-print(time.tm_hour)
+
 def GetPatientRoute():
-    returnroute = []
-    returnroute = []
-    driver = webdriver.Chrome("chromedriver")
-    driver.get('http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=12&ncvContSeq=&contSeq=&board_id=&gubun=')
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-    route = soup.select("#content > div > div.box_line2 > div > div > table > tbody > tr > td")
-    for i in range(0, len(route), 1):
-        route[i] = route[i].text.replace("소독완료", "").replace("\n", " ")
+    wb = openpyxl.load_workbook("PatientRoute.xlsx")
+    result =""
+    cnt = 0
+    result+=("<p>정부 공개 확진자 이동 동선 파악 꼭 검사받으세요.<p></br>")
 
-    for i in range(0, len(route), 1):
-        returnroute.append("""
-                                  <header>
-                                      <div>
-                                           <h3>{:} : {:}</h3>
-                                      </div>
-                                  </header>
-                                  """.format(str(i + 1), route[i]))
-    # print("해당 시간대에 아래 시설을 방문하신 분은 증상이 없어도 진단검사를 꼭 받아주세요.")
-    try:
-        pass
-    except:
-        returnroute.append("GetPatientRoute err")
+    for i in wb.active.rows:
+        if cnt > 0:
+            result += ("<article class='mini-post'><header>")
+            result += ("<h3>{}<h3>".format(i[0].value))
+            result += ("<h3>{}<h3>".format(i[1].value))
+            result += ("<h3>{}<h3>".format(i[2].value))
+            result += ("<h3>{}<h3>".format(i[3].value))
 
-    return returnroute
+            result += ("</header></article>")
+        cnt += 1
+    if cnt == 0:
+        print("최근 공개된 확진자 동선이 없습니다. \n")
 
-# print(GetPatientRoute())
+    return result
+
+
+print(GetPatientRoute())
