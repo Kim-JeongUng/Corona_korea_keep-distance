@@ -25,8 +25,9 @@ from corona.NewsCrawling_test import news
 from corona.JenanMessage import jenan_area
 from corona.governmentNews import gnews
 from corona.KeepDistance import KeepDistanceAllArea,junsu
+from corona.CovidCount import CovidAll,CovidArea
+from corona.CovidCountSmallArea import find
 # Create your views here.
-
 
 def register(request):   #회원가입 페이지를 보여주기 위한 함수
     if request.method == "GET":
@@ -121,6 +122,28 @@ def get_gnews(request):
 
 def jenan(request,area):
     return HttpResponse(jenan_area(area))
+
+def covid_value(request,area):
+    area = area.split(' ')[1]
+    korea = CovidAll()
+    area1 = CovidArea(area)
+    area2 = find(area)
+
+
+    #area2 = find(area)
+    tds = """
+                    <th>누적확진자</th>
+                    <th>전국 신규 확진자</th>
+                    <th>{}도 신규확진자</th>
+                    <th>{} 신규확진자</th>
+                    <tr>
+                    <td>{}</td>
+                    <td>{}</td>
+                    <td>{}</td>
+                    <td>{}</td>
+                    </tr>""".format(area1[-1], area, korea[1], korea[0], area1[0][1],area2)
+    return HttpResponse(tds)
+
 
 def index(request):
     return render(request,'corona/index.html')
