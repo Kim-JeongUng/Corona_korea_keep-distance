@@ -1,6 +1,7 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900");
 
+
 /*
 	Future Imperfect by HTML5 UP
 	html5up.net | @ajlkn
@@ -1990,6 +1991,7 @@ input, select, textarea {
         padding:10px 20px;
         background:white;
         font-size:28px;
+        font-family: 'BMDOHYEON';
         border-top-right-radius:10px;
         border-bottom-left-radius:10px;
         transition:all 1s;
@@ -3552,6 +3554,13 @@ input, select, textarea {
 	body.single #footer {
 		text-align: center;
 	}
+/* FONT */
+    @font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* Menu */
 
