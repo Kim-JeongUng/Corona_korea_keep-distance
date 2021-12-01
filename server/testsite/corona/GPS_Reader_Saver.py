@@ -37,8 +37,8 @@ def get_gps_value(user_lng,user_lat):
     headers = {"Authorization": "KakaoAK b3c7423bf62d904aad46bea35d6db181"} # API KEY
     api_test = requests.get(url, headers=headers)
     url_text = json.loads(api_test.text)
+    my_region1 = url_text['documents'][0]['region_1depth_name']
     my_region2 = url_text['documents'][0]['region_2depth_name']
-    my_region3 = url_text['documents'][0]['region_3depth_name']
 
 
     # GPS 기록저장
@@ -49,11 +49,11 @@ def get_gps_value(user_lng,user_lat):
     today = today.strftime("%Y%m%d")
 
     # 만약 마지막에 저장한 값과 달라질경우(지역의 이동 또는 날짜의 변경) 엑셀 저장
-    if not (df.iloc[-1]['my_region3'] == my_region3 or df.iloc[-1]['date'] == today):
+    if not (df.iloc[-1]['my_region2'] == my_region2 or df.iloc[-1]['date'] == today):
         data ={
             'date': [today],
-            'my_region2': [my_region2],
-            'my_region3': [my_region3]
+            'my_region1': [my_region1],
+            'my_region2': [my_region2]
         }
 
         new_df = pd.DataFrame(data)
@@ -63,4 +63,4 @@ def get_gps_value(user_lng,user_lat):
         print("지역 또는 날짜가 바뀌어 데이터를 저장합니다.")
         df.to_excel('areaLog.xlsx')
 
-    return ([my_region2+" "+my_region3])
+    return ([my_region1+' '+my_region2])
