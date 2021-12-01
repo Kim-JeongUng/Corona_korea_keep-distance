@@ -6,7 +6,10 @@ import CovidCountSmallArea
 import JenanMessage
 import Schedule_CovidPatientRoute
 
-CovidCountSmallArea.CovidCountSave()
+# 오늘 날짜도 추가하고싶으면 실행 (오전 10시 이후에 실행)
+# CovidCountSmallArea.CovidCountSave()
+
+
 # 매일 오전 10시마다 코로나증감수치 엑셀저장 실행
 schedule.every().day.at("10:00").do(CovidCountSmallArea.CovidCountSave)
 #schedule.every(3).hours.do(CovidCountSmallArea.CovidCountSave)
