@@ -23,8 +23,12 @@ from .forms import EventForm
 from corona.GPS_Reader_Saver import get_gps_value
 from corona.NewsCrawling_test import news
 from corona.JenanMessage import jenan_area
+from corona.governmentNews import gnews
+from corona.KeepDistance import KeepDistanceAllArea,junsu
+from corona.CovidCount import CovidAll,CovidArea
+from corona.CovidCountSmallArea import find
+from corona.CovidPatientRoute import GetPatientRoute
 # Create your views here.
-
 
 def register(request):   #회원가입 페이지를 보여주기 위한 함수
     if request.method == "GET":
@@ -109,18 +113,59 @@ def event(request, event_id=None):
         return HttpResponseRedirect(reverse('calendar'))
     return render(request, 'corona/event.html', {'form': form})
 
-def get_gps(request):
-    return render(request,'corona/gps.js')
+
 
 def get_news(request,query):
     return HttpResponse(news(query))
 
+def get_gnews(request):
+    return HttpResponse(gnews())
+
 def jenan(request,area):
     return HttpResponse(jenan_area(area))
+
+def covid_value(request,area):
+    area = area.split(' ')[1]
+    korea = CovidAll()
+    area1 = CovidArea(area)
+    area2 = find(area)
+
+
+    #area2 = find(area)
+    tds = """
+                    <th>누적확진자</th>
+                    <th>전국 신규 확진자</th>
+                    <th>{}도 신규확진자</th>
+                    <th>{} 신규확진자</th>
+                    <tr>
+                    <td>{}</td>
+                    <td>{}</td>
+                    <td>{}</td>
+                    <td>{}</td>
+                    </tr>""".format(area1[-1], area, korea[1], korea[0], area1[0][1],area2)
+    return HttpResponse(tds)
+
 
 def index(request):
     return render(request,'corona/index.html')
 
+def news_page(request):
+    return render(request,'corona/news_page.html')
+
+def gnews_page(request):
+    return render(request,'corona/gnews_page.html')
+
+def patientjenan_page(request):
+    return render(request,'corona/patientjenan_page.html')
+
+def junsu(request):
+    return HttpResponse(junsu(1))
+
+def get_gps(request):
+    return render(request,'corona/gps.js')
+
+def covidpatient(request):
+    return HttpResponse(GetPatientRoute())
 
 def get_location(request,user_lng,user_lat):
     return HttpResponse(get_gps_value(user_lng,user_lat))
