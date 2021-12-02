@@ -16,7 +16,7 @@ function successCallback(position){
     var lng = position.coords.longitude;
     var url = "gps/"+lng+"/"+lat;
     var result = $.get(url, function(data){
-                    url = "news/"+"제주";
+                    url = "news/"+data;
                 var result = $.get(url, function(data2){
                 document.getElementById("news_list").innerHTML = data2;
 	            });

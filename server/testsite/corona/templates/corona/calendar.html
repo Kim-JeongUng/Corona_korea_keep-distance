@@ -7,12 +7,5 @@
 	<a class="btn btn-info right" href="{% url 'event_new' %}"> New Event </a>
 </div>
 
-{% if user.username == '' %}
-    <li>로그인 후 사용이 가능합니다.</li>
-<h1><a href="{% url 'lg' %}" style="margin-left:33px;">로그인</a></h1>
-{% else %}
-    {{ calendar }}
-	<h1><a href="{% url 'logout' %}" style="margin-left:33px;">로그아웃</a></h1>
-{% endif %}
-
+{{ calendar }}
 {% endblock %}

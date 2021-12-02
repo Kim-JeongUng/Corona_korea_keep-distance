@@ -12,10 +12,6 @@
         <script type="text/javascript" src="{% static 'js/main/gps.js' %}"></script><! gps값 >
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-			<script src="./data.js"></script>
-		<!-- iframe -->
-		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="{% static 'js/main/iframe.js' %}"></script>
 </head>
 	<body class="is-preload">
 
@@ -47,11 +43,7 @@
 
 				<!-- Main -->
 					<div id="main">
-					<form action="" method="POST">
-    {% csrf_token %}
-    <input name ="loca" type="text">
-    <input type ="submit" value="제출">
-    </form>
+
 						<!-- Post -->
 						<article class="post">
 							<header>
@@ -203,9 +195,6 @@
 			<script src="{% static 'js/main/jquery.min.js' %}"></script>
 			<script src="{% static 'js/main/main.js' %}"></script>
 			<script src="{% static 'js/main/util.js' %}"></script>
-				<script src="{% static 'js/main/autocomplate.js' %}"></script>
-				<script defer src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
  {% endblock %}
 
 	</body>
