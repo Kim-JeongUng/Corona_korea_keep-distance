@@ -129,11 +129,11 @@ def covid_value(request,area):
     korea = CovidAll()
     area1 = CovidArea(area)
     area2 = find(area)
-
+    print(area2)
 
     #area2 = find(area)
     tds = """
-                    <th>누적확진자</th>
+                    <th>전국 누적확진자</th>
                     <th>전국 신규 확진자</th>
                     <th>{}도 신규확진자</th>
                     <th>{} 신규확진자</th>
@@ -142,7 +142,12 @@ def covid_value(request,area):
                     <td>{}</td>
                     <td>{}</td>
                     <td>{}</td>
-                    </tr>""".format(area1[-1], area, korea[1], korea[0], area1[0][1],area2)
+                    </tr>""".format(area1[-1],#도 단위
+                                    area,#지역
+                                    korea[1],#전체 누적확진자
+                                    korea[0],#전체 신규확진자
+                                    area1[0][0],#강원도 신규확진자
+                                    area2)
     return HttpResponse(tds)
 
 
