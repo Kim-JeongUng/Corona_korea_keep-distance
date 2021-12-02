@@ -16,7 +16,8 @@ urlpatterns = [
     path('jenan/<str:area>',views.jenan,name="jenan"),
     path('calendar/', views.CalendarView.as_view(), name='calendar'),
     path('junsu/', views.junsu, name='login'),
-
+    path('covid_value/<str:area>', views.covid_value, name='login'),
+    path('patient/',views.covidpatient,name='patient'),
     #
     url(r'^event/new/$', views.event, name='event_new'),
     url(r'^event/edit/(?P<event_id>\d+)/$', views.event, name='event_edit'),

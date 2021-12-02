@@ -83,12 +83,10 @@ def CovidCountSave():
 def find(area):
     try:
         td_sheet = wb[today]  # 오늘 시트
-    except:
-        td_sheet = wb[wb.sheetnames[0]]
-    try:
         ys_sheet = wb[yesterday]  # 전날 시트
     except:
-        # print("전날 기록이 없어 부정확한 자료입니다.")
+        # 오늘 또는 전날 기록이 없어 부정확한 자료입니다.
+        td_sheet = wb[wb.sheetnames[0]]
         ys_sheet = wb[wb.sheetnames[1]]
 
     for i in ys_sheet.rows:
@@ -111,12 +109,10 @@ def findTopDanger(count=10):
     wb = openpyxl.load_workbook('CovidCount.xlsx')
     try:
         td_sheet = wb[today]  # 오늘 시트
-    except:
-        td_sheet = wb[wb.sheetnames[0]]
-    try:
         ys_sheet = wb[yesterday]  # 전날 시트
     except:
-        # 전날 기록이 없어 부정확한 자료입니다.
+        # 오늘 또는 전날 기록이 없어 부정확한 자료입니다.
+        td_sheet = wb[wb.sheetnames[0]]
         ys_sheet = wb[wb.sheetnames[1]]
 
     td_cnt = []
@@ -156,7 +152,6 @@ def findTopDanger(count=10):
     # 도 / 시,구 / 만명당 발생률
 
     returnMsg = []
-
     for i in range(0, count):
         returnMsg.append("""
         <article class="post">
@@ -168,7 +163,8 @@ def findTopDanger(count=10):
                 </div>
             </header>
             </article>
-        """.format(population_sheet[tempIndex.index(i + 1)][0].value, population_sheet[tempIndex.index(i + 1)][1].value,
+        """.format(population_sheet[tempIndex.index(i + 1)][0].value,
+                   population_sheet[tempIndex.index(i + 1)][1].value,
                    incidenceRate[tempIndex.index(i + 1)]))
 
     return returnMsg
@@ -247,7 +243,6 @@ def __init__():
     CovidCountSave()
 
 
-print(findLowDanger())
 # CovidCountSave()
 # print(find("원주시"))
 # print(find("춘천시"))

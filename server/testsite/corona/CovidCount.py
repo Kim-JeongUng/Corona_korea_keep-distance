@@ -7,7 +7,6 @@ import datetime
 import re
 import pandas as pd
 import os
-from CovidCountSmallArea import find
 BASE_DIR = os.getcwd()
 # 데이터셋 : 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=tL8DvlXmKWq0V7ralHks5bdaNOVJ4Y1yMkYncaEWfjTO%2F3bobA%2FuSCSDuVBxesTC%2F3lbC8JcFJZJJe9j9GoPgQ%3D%3D&pageNo=1&numOfRows=10&startCreateDt=20210809&endCreateDt=20210810'
 # data.go.kr
@@ -25,18 +24,18 @@ if res.status_code == 200:
     result = xmltodict.parse(res.text)
     dd = json.loads(json.dumps(result))
 
-df = pd.read_excel(str(BASE_DIR)+"\\행정구역.xlsx",data_only=True)
+df = pd.read_excel(str(BASE_DIR)+"\\corona\\행정구역.xlsx")
 # 전체 지역 누적확진자 및 추가확진자
 def getCovidKR():
     Covid = []
-    print('%s 기준' % (dd['response']['body']['items']['item'][0]["stdDay"]))
+    # print('%s 기준' % (dd['response']['body']['items']['item'][0]["stdDay"]))
 
     i = len(dd['response']['body']['items']['item'])
     for area in dd['response']['body']['items']['item']:
         i -= 1
-        Covid.append("%s 지역" % dd['response']['body']['items']['item'][i]['gubun'])
-        Covid.append("누적 확진자:" + dd['response']['body']['items']['item'][i]['defCnt'])
-        Covid.append("추가 확진자:" + int(dd['response']['body']['items']['item'][i]['incDec']))
+        Covid.append(dd['response']['body']['items']['item'][i]['gubun'])
+        Covid.append(dd['response']['body']['items']['item'][i]['defCnt'])
+        Covid.append(int(dd['response']['body']['items']['item'][i]['incDec']))
         return Covid
 
 # 전국 코로나 신규 확진자
@@ -48,8 +47,8 @@ def CovidAll():
     for a in dd['response']['body']['items']['item']:
         i -= 1
         if dd['response']['body']['items']['item'][i]['gubun'].find("합계") != -1:
-            Covid.append("신규 확진자:" + dd['response']['body']['items']['item'][i]['incDec'])
-            Covid.append("누적 확진자:" + dd['response']['body']['items']['item'][i]['defCnt'])
+            Covid.append(dd['response']['body']['items']['item'][i]['incDec'])
+            Covid.append(dd['response']['body']['items']['item'][i]['defCnt'])
             return Covid
 
 
@@ -65,19 +64,21 @@ def CovidArea(area):
     for a in dd['response']['body']['items']['item']:
         i -= 1
         if dd['response']['body']['items']['item'][i]['gubun'].find(dov) != -1:
-            Covid.append("신규 확진자:" + dd['response']['body']['items']['item'][i]['incDec'])
+            Covid.append(dd['response']['body']['items']['item'][i]['incDec'])
             # 시 도별 누적 확진자가 궁금한가?
-            Covid.append("누적 확진자:" + dd['response']['body']['items']['item'][i]['defCnt'])
-            Covid.append("격리중 환자:" + dd['response']['body']['items']['item'][i]['isolIngCnt'])
+            Covid.append(dd['response']['body']['items']['item'][i]['defCnt'])
+            Covid.append(dd['response']['body']['items']['item'][i]['isolIngCnt'])
     return Covid,dov
 
 today = datetime.datetime.now()
 yesterday = today - datetime.timedelta(1)
 d1 = today.strftime("%Y%m%d")
 d2 = d1 # yesterday.strftime("%Y%m%d")
-print(CovidArea("춘천"))
-print(CovidAll())
-print(find("춘천"))
+# print(CovidArea("춘천"))
+# print("춘천 확진자 :{}".format(find("춘천")))
+# print(CovidAll())
+
+
 
 
 

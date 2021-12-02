@@ -61,5 +61,5 @@ if __name__ == "__main__":
     # jenan_all()
     # jenan_area("대구")
 
-#jenan_all()
+jenan_all()
 #jenan_area("춘천시")

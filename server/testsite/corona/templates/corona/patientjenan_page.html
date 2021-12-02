@@ -58,16 +58,24 @@
 
 							{% include "./junsu.html" %}
 							<footer>
-								<ul class="actions">
-									<li><a href="single.html" class="button large">지역 바꾸기</a></li>
-								</ul>
+
 
 							</footer>
 						</article>
 
 
 						<!-- Post -->
-						{% include "./jenan.html" %}
+						<table id="route" border="1">
+							<th><h1>확진 경로</h1></th>
+							<tr><td>{% include "./patient.html" %}</td></tr>
+
+						</table>
+						<table id="values" border="1">
+							<th><h1>재난 문자</h1></th>
+							<tr><td>{% include "./jenan.html" %}</td></tr>
+
+						</table>
+
 
 
 						<!-- Post -->
@@ -110,12 +118,17 @@
 
 						<!-- Mini Posts -->
 							<section>
-									<a href="/" class="button"><h1>확진자     </h1></a></br>
-									<a href="/news_page" class="button"><h1>지역 뉴스     </h1></a></br>
-									<a href="/gnews_page" class="button"><h1>정부 뉴스     </h1></a></br>
-									<a href="/pandj_page" class="button"><h1>확진경로 재난문자</h1></a></br>
-									<a href="#" class="button"><h1>캘린더        </h1></a></br>
+									<a href="/" class="btn"><span class="btn">확진자     </span></a></br>
+									<a href="/news_page" class="btn"><span class="btn">지역 뉴스     </span></a></br>
+									<a href="/gnews_page" class="btn"><span class="btn">정부 뉴스    </span></a></br>
+									<a href="/pandj_page" class="btn"><span class="btn">확진경로 재난문자</span></a></br>
+									<a href="#" class="btn"><span class="btn">캘린더        </span></a></br>
 								</ul>
+							</section>
+
+						<!-- JHB logo -->
+							<section id = "JHB">
+									<img src = "https://user-images.githubusercontent.com/82865325/144235816-29fcc792-d00e-4330-842e-07f4ba30428d.png">
 							</section>
 
 						<!-- Footer -->
