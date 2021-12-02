@@ -61,7 +61,12 @@
         <article>
             <!-- Post -->
             {% include "./covidcount.html" %}
-            {% include "./CovidPatientPrediction.html" %}
+            <table id="route" border="1">
+                <th><h1>확진자 수 예상 그래프</h1></th>
+                <tr><td>{% include "./CovidPatientPrediction.html" %}</td></tr>
+
+            </table>
+
 			<div align="center">
             <p>현재 제공하고 있는 통계 수치와 그래프는 질병관리 본부의 정보를 토대로 취합하여 업데이트 됩니다. </br>
                 민간이 취합한 내용이기에 수치의 정확성에 대해 책임질 수 없습니다. </br>

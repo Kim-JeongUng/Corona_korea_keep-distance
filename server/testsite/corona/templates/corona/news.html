@@ -24,6 +24,7 @@ function successCallback(position){
 	            });
         });
     }else{
+
         var result = $.get(url, function(data){
                     url = "news/"+"{{k}}";
                 var result = $.get(url, function(data2){
@@ -37,7 +38,7 @@ function successCallback(position){
 function errorCallback(){
                 alert("error");
 }
-
+alert({{k}});
 get_geo();
 
     </script>
