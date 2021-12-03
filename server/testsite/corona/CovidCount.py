@@ -24,7 +24,7 @@ if res.status_code == 200:
     result = xmltodict.parse(res.text)
     dd = json.loads(json.dumps(result))
 
-df = pd.read_excel(str(BASE_DIR)+"\\corona\\행정구역.xlsx")
+df = pd.read_excel(str(BASE_DIR)+"/corona/행정구역.xlsx")
 # 전체 지역 누적확진자 및 추가확진자
 def getCovidKR():
     Covid = []

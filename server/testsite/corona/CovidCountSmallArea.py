@@ -19,7 +19,7 @@ yesterday = today - datetime.timedelta(1)
 today = today.strftime("%Y%m%d")
 yesterday = yesterday.strftime("%Y%m%d")
 
-wb = openpyxl.load_workbook(str(BASE_DIR)+"\\corona\\CovidCount.xlsx",data_only=True)
+wb = openpyxl.load_workbook(str(BASE_DIR)+"/corona/CovidCount.xlsx",data_only=True)
 
 
 def save():
@@ -32,7 +32,7 @@ def save():
         today = today.strftime("%Y%m%d")
         yesterday = yesterday.strftime("%Y%m%d")
 
-        wb = openpyxl.load_workbook(str(BASE_DIR)+"\\corona\\CovidCount.xlsx")
+        wb = openpyxl.load_workbook(str(BASE_DIR)+"/corona/CovidCount.xlsx")
         # 이부분에 이전 Today자료를 YesterDay시트로 옮겨줘야함
         print("날짜가 바뀌어 데이터를 저장합니다.")
         # today -> yesterday , 오늘 새로운 데이터 추가
@@ -110,7 +110,7 @@ def find(area):
 
 # 위험지역 확인
 def findTopDanger(count=10):
-    wb = openpyxl.load_workbook(str(BASE_DIR) + "\\corona\\CovidCount.xlsx", data_only=True)
+    wb = openpyxl.load_workbook(str(BASE_DIR) + "/corona/CovidCount.xlsx", data_only=True)
     try:
         td_sheet = wb[today]  # 오늘 시트
     except:
@@ -171,7 +171,7 @@ def findTopDanger(count=10):
 
 # 비위험지역 확인
 def findLowDanger(count=10):
-    wb = openpyxl.load_workbook(str(BASE_DIR)+"\\corona\\CovidCount.xlsx")
+    wb = openpyxl.load_workbook(str(BASE_DIR)+"/corona/CovidCount.xlsx")
     try:
         td_sheet = wb[today]  # 오늘 시트
     except:

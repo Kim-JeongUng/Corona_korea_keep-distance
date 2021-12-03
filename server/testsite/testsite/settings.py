@@ -17,7 +17,12 @@ import my_settings
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+#추가용! 세션이에요
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_EXPIRE_SECONDS = 3600
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+SESSION_TIMEOUT_REDIRECT = 'lg'
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -39,8 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions', #세션 프레임워크
     'django.contrib.messages',#메세징 프레임워크
     'django.contrib.staticfiles',#정적 파일을 관리하는 프레임워크
+    'django.contrib.sites',
+    'django.contrib.humanize',
     'corona',
 ]
+SITE_IDE = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,7 +58,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
+X_FRAME_OPTIONS = 'ALLOW'
 
 ROOT_URLCONF = 'testsite.urls'
 
@@ -73,13 +86,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'testsite.wsgi.application'
 
 
-DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.sqlite3',
-      'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-#DATABASES= my_settings.DATABASES
+# Database
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.sqlite3',
+    #   'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+#}
+DATABASES= my_settings.DATABASES
 
 
 
