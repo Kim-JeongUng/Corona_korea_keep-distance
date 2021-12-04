@@ -12,6 +12,7 @@ import re
 
 import openpyxl
 import os
+
 BASE_DIR = os.getcwd()
 
 today = datetime.datetime.now()
@@ -19,7 +20,7 @@ yesterday = today - datetime.timedelta(1)
 today = today.strftime("%Y%m%d")
 yesterday = yesterday.strftime("%Y%m%d")
 
-wb = openpyxl.load_workbook(str(BASE_DIR)+"/corona/CovidCount.xlsx",data_only=True)
+wb = openpyxl.load_workbook(str(BASE_DIR)+"\\corona\\CovidCount.xlsx",data_only=True)
 
 
 def save():
@@ -109,7 +110,8 @@ def find(area):
 
 
 # 위험지역 확인
-def findTopDanger(count=3):
+def findTopDanger():
+    count = 3
     wb = openpyxl.load_workbook(str(BASE_DIR) + "\\corona\\CovidCount.xlsx", data_only=True)
     try:
         td_sheet = wb[today]  # 오늘 시트
@@ -157,20 +159,15 @@ def findTopDanger(count=3):
     # 가장 많은 발생 count 갯수만큼 반환
     # 도 / 시,구 / 만명당 발생률
 
-    returnMsg = []
+    returnMsg = {}
 
     for i in range(0, count):
-        returnMsg.append("""
-                     {:}
-                     {:}
-                     {:.2f}
-        """.format(population_sheet[tempIndex.index(i + 1)][0].value, population_sheet[tempIndex.index(i + 1)][1].value,
-                   incidenceRate[tempIndex.index(i + 1)]))
+        returnMsg[i] = ("""{} {}""".format(population_sheet[tempIndex.index(i + 1)][0].value, population_sheet[tempIndex.index(i + 1)][1].value))
 
     return returnMsg
 
 # 비위험지역 확인
-def findLowDanger(count=3):
+def findLowDanger():
     wb = openpyxl.load_workbook(str(BASE_DIR)+"\\corona\\CovidCount.xlsx")
     try:
         td_sheet = wb[today]  # 오늘 시트
@@ -217,19 +214,29 @@ def findLowDanger(count=3):
     # 가장 많은 발생 count 갯수만큼 반환
     # 도 / 시,구 / 만명당 발생률
 
-    returnMsg = []
+    tmp = []
     TempzeroIncrease[0]
-
 
     for T in TempzeroIncrease:
         for i in wb[wb.sheetnames[-1]].rows:
             if str(T) in str(i[2].value):
-                returnMsg.append("""
-                             {}{}{}
-                """.format(i[0].value, i[1].value,
-                           i[2].value))
+
+                tmp.append("""{} {}""".format(i[0].value, i[1].value))
+
+    returnMsg = {}
+
+    for i in range(0, 3):
+        returnMsg[i] = tmp[i]
 
     return returnMsg
+
+def find_danger():
+    top = findTopDanger()
+    low = findLowDanger()
+    value = "<table><th>상대적 위험 지역</th><th>상대적 안전 지역</th>"
+    for x in range(0,3):
+        value += "<tr><td>{}<td><td>{}<td><tr>".format(top[x],low[x])
+    return value+"</table>"
 
 def __init__():
     CovidCountSave()

@@ -59,6 +59,40 @@
 
 
 						<!-- Post -->
+						<table border="1">
+							<th><h1>인구수 대비 감염수 안전도</h1></th>
+						</table>
+						<div style="width:49%;float:left;">
+								<table border="1">
+									<th>상대적 위험 지역</th>
+									<tr>
+										<td>{{ find_top_danger.0 }}<td>
+									</tr>
+									<tr>
+										<td>{{ find_top_danger.1 }}<td>
+									</tr>
+									<tr>
+										<td>{{ find_top_danger.2 }}<td>
+									</tr>
+								</table>
+							</div>
+							<div style="width:49%;float:right;">
+								<table border="1">
+									<th>상대적 안전 지역</th>
+
+									<tr>
+										<td>{{ find_low_danger.0 }}<td>
+									</tr>
+
+									<tr>
+										<td>{{ find_low_danger.1 }}<td>
+									</tr>
+
+									<tr>
+										<td>{{ find_low_danger.2 }}<td>
+									</tr>
+								</table>
+							</div>
 						<table id="route" border="1">
 							<th><h1>확진 경로</h1></th>
 							<tr><td>{% include "./patient.html" %}</td></tr>

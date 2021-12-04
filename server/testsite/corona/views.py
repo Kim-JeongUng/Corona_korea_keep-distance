@@ -26,7 +26,7 @@ from corona.JenanMessage import jenan_area
 from corona.governmentNews import gnews
 from corona.KeepDistance import KeepDistanceAllArea,junsu
 from corona.CovidCount import CovidAll,CovidArea
-from corona.CovidCountSmallArea import find
+from corona.CovidCountSmallArea import find,find_danger,findLowDanger,findTopDanger
 from corona.CovidPatientRoute import GetPatientRoute
 # Create your views here.
 from django.contrib import auth
@@ -126,10 +126,10 @@ def event(request, event_id=None):
 
 
 
-def get_news(request,query):
+def get_news(request,query):#지역뉴스
     return HttpResponse(news(query))
 
-def get_gnews(request):
+def get_gnews(request):#정부뉴스
     return HttpResponse(gnews())
 
 def jenan(request,area):
@@ -137,11 +137,12 @@ def jenan(request,area):
 
 def covid_value(request,area):
     area = area.split(' ')[1]
+    omicron = Omicron()
     try:
         korea = CovidAll()
         area1 = CovidArea(area)
         area2 = find(area)
-        omicron = Omicron()
+
         tds = """
                         <th>전국 누적확진자</th>
                         <th>전국 신규 확진자</th>
@@ -166,7 +167,6 @@ def covid_value(request,area):
         korea = "서버 점검중"
         area1 = "서버 점검중"
         area2 = "서버 점검중"
-        omicron = Omicron()
         tds = """
                         <th>전국 누적확진자</th>
                         <th>전국 신규 확진자</th>
@@ -210,11 +210,13 @@ def news_page(request):
 
 def gnews_page(request):
     return render(request,'corona/gnews_page.html')
+
 def index2(request):
     return render(request,'corona/index2.html')
 
 def patientjenan_page(request):
-    return render(request,'corona/patientjenan_page.html')
+    context = {'find_top_danger': findTopDanger(),'find_low_danger' : findLowDanger() }
+    return render(request, 'corona/patientjenan_page.html', context=context)
 
 def junsu(request):
     return HttpResponse(junsu(1))

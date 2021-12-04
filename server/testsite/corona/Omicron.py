@@ -27,5 +27,3 @@ def Omicron():
         OmiCount = "보도 바로가기"
 
     return [Omiurl, OmiCount]
-
-print(Omicron())
