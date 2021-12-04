@@ -3,9 +3,9 @@ DATABASES={
             'ENGINE': 'django.db.backends.mysql',
             'NAME':'covid',
             'USER':'root',
-            'PASSWORD':'0955',
+            'PASSWORD':'route1284',
             'HOST':'localhost',
-            'PORT':'3307',
+            'PORT':'3306',
         }
 
 }

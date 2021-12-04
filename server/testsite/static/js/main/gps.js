@@ -1,21 +1,22 @@
-function get_geo(){
+function get_geo_gps(){
     if(!!navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
+        navigator.geolocation.getCurrentPosition(successCallback_gps,errorCallback);
     }
     else{
-        alert("위치 확인 불가");
+        errorCallback();
     }
 }
-function successCallback(position){
+function successCallback_gps(position){
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
-    var url = "gps/"+lng+"/"+lat;
-    var result = $.get(url, function(data){
-        document.getElementById("location").innerHTML = data;
-        return data;
+    var url_gps = "gps/"+lng+"/"+lat;
+    var result_gps = $.get(url_gps, function(data_gps){
+        document.getElementById("location").innerHTML = data_gps;
         });
 }
 function errorCallback(){
-                alert("error");
+                document.getElementById("location").innerHTML = "서울";
 }
-get_geo();
+
+
+get_geo_gps();

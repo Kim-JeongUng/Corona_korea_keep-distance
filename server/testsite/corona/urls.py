@@ -25,6 +25,7 @@ urlpatterns = [
     path('logout/', views.users_logout, name='logout'),
     path('register/', views.register, name='register'),
     path('index1/', views.index1, name='index1'),
+    path('index2/', views.index2, name='index2'),
     path('<int:board_id>/', views.detail, name='detail'),
     path('write/', views.write, name='write'),
     path('write/write_board', views.write_board, name='write_board'),

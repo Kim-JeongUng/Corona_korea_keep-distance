@@ -4,7 +4,7 @@ import openpyxl
 import os
 BASE_DIR = os.getcwd()
 def GetPatientRoute():
-    wb = openpyxl.load_workbook(str(BASE_DIR)+"/corona/PatientRoute.xlsx")
+    wb = openpyxl.load_workbook(str(BASE_DIR)+"\\corona\\PatientRoute.xlsx")
     result =""
     cnt = 0
     result+=("<p>정부 공개 확진자 이동 동선 파악 꼭 검사받으세요.<p></br>")

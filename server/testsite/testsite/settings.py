@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'corona',
 ]
-SITE_IDE = 1
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,7 +59,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django_session_timeout.middleware.SessionTimeoutMiddleware',
+
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 ]

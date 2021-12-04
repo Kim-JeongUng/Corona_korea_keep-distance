@@ -24,7 +24,7 @@ if res.status_code == 200:
     result = xmltodict.parse(res.text)
     dd = json.loads(json.dumps(result))
 
-df = pd.read_excel(str(BASE_DIR)+"/corona/행정구역.xlsx")
+df = pd.read_excel(str(BASE_DIR)+"\\corona\\행정구역.xlsx")
 # 전체 지역 누적확진자 및 추가확진자
 def getCovidKR():
     Covid = []
@@ -42,8 +42,9 @@ def getCovidKR():
 def CovidAll():
     Covid = []
     # print("%s기준 신규 확진자 및 누적 확진자" % (dd['response']['body']['items']['item'][0]["stdDay"]))
-
+    print(dd)
     i = len(dd['response']['body']['items']['item'])
+
     for a in dd['response']['body']['items']['item']:
         i -= 1
         if dd['response']['body']['items']['item'][i]['gubun'].find("합계") != -1:
@@ -67,17 +68,15 @@ def CovidArea(area):
             Covid.append(dd['response']['body']['items']['item'][i]['incDec'])
             # 시 도별 누적 확진자가 궁금한가?
             Covid.append(dd['response']['body']['items']['item'][i]['defCnt'])
-            Covid.append(dd['response']['body']['items']['item'][i]['isolIngCnt'])
+    print(Covid,dov)
     return Covid,dov
 
 today = datetime.datetime.now()
 yesterday = today - datetime.timedelta(1)
 d1 = today.strftime("%Y%m%d")
 d2 = d1 # yesterday.strftime("%Y%m%d")
-# print(CovidArea("춘천"))
 # print("춘천 확진자 :{}".format(find("춘천")))
 # print(CovidAll())
-
 
 
 

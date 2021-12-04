@@ -32,6 +32,7 @@ from corona.CovidPatientRoute import GetPatientRoute
 from django.contrib import auth
 from django.contrib import messages
 # Create your views here.
+from corona.Omicron import Omicron
 
 def register(request):   #회원가입 페이지를 보여주기 위한 함수
     if request.method == "GET":
@@ -136,28 +137,55 @@ def jenan(request,area):
 
 def covid_value(request,area):
     area = area.split(' ')[1]
-    korea = CovidAll()
-    area1 = CovidArea(area)
-    area2 = find(area)
+    try:
+        korea = CovidAll()
+        area1 = CovidArea(area)
+        area2 = find(area)
+        omicron = Omicron()
+        tds = """
+                        <th>전국 누적확진자</th>
+                        <th>전국 신규 확진자</th>
+                        <th>{}도 신규확진자</th>
+                        <th>{} 신규확진자</th>
+                        <th>오미크론 신규 확진</th>
+                        <tr>
+                        <td>{}</td>
+                        <td>{}</td>
+                        <td>{}</td>
+                        <td>{}</td>
+                        <td><a href = '{}'>{}</td>
+                        </tr>""".format(area1[-1],  # 도 단위
+                                        area,  # 지역
+                                        korea[1],  # 전체 누적확진자
+                                        korea[0],  # 전체 신규확진자
+                                        area1[0][0],  # 강원도 신규확진자
+                                        area2,
+                                        omicron[0],
+                                        omicron[1])
+    except:
+        korea = "서버 점검중"
+        area1 = "서버 점검중"
+        area2 = "서버 점검중"
+        omicron = Omicron()
+        tds = """
+                        <th>전국 누적확진자</th>
+                        <th>전국 신규 확진자</th>
+                        <th>도단위 신규확진자</th>
+                        <th>현재 지역 신규확진자</th>
+                        <th>오미크론 신규 확진</th>
+                        <tr>
+                        <td>서버 점검중</td>
+                        <td>서버 점검중</td>
+                        <td>서버 점검중</td>
+                        <td>서버 점검중</td>
+                        <td><a href = '{}'>{}</td>
+                        </tr>""".format(omicron[0],
+                                        omicron[1])
+
     print(area2)
 
     #area2 = find(area)
-    tds = """
-                    <th>전국 누적확진자</th>
-                    <th>전국 신규 확진자</th>
-                    <th>{}도 신규확진자</th>
-                    <th>{} 신규확진자</th>
-                    <tr>
-                    <td>{}</td>
-                    <td>{}</td>
-                    <td>{}</td>
-                    <td>{}</td>
-                    </tr>""".format(area1[-1],#도 단위
-                                    area,#지역
-                                    korea[1],#전체 누적확진자
-                                    korea[0],#전체 신규확진자
-                                    area1[0][0],#강원도 신규확진자
-                                    area2)
+
     return HttpResponse(tds)
 
 
@@ -174,7 +202,6 @@ def news_page(request):
         return render(request, 'corona/news_page.html', context=context)
     else:
         k = ''
-        k = ''
         context = {
             'k': k
         }
@@ -183,6 +210,8 @@ def news_page(request):
 
 def gnews_page(request):
     return render(request,'corona/gnews_page.html')
+def index2(request):
+    return render(request,'corona/index2.html')
 
 def patientjenan_page(request):
     return render(request,'corona/patientjenan_page.html')

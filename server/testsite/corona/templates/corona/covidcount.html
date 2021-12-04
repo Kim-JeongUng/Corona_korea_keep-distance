@@ -14,7 +14,7 @@
             navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
         }
         else{
-            alert("위치 확인 불가");
+            errorCallback();
         }
     }
     function successCallback(position){
@@ -29,8 +29,8 @@
             });
     }
     function errorCallback(){
-                    alert("error");
-    }
+                document.getElementById("values").innerHTML = "서울";
+}
 
     get_geo();
 

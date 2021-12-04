@@ -3,10 +3,10 @@
 <script type="text/javascript">
     function get_geo(){
         if(!!navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
+            navigator.geolocation.getCurrentPosition(successCallback,errorCallback());
         }
         else{
-            console.log("위치확인불가");
+            errorCallback();
         }
     }
     function successCallback(position){
@@ -20,9 +20,9 @@
 	            });
             });
     }
-    function errorCallback(){
-            console.log("에러");
-    }
+ function errorCallback(){
+                document.getElementById("mini-posts").innerHTML = "서울";
+}
     get_geo();
 </script>
 

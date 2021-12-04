@@ -1,8 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    {% load static %}
+    {% block content %}
+    <title>Corona Integrated Information System</title>
+    <meta charset="utf-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{% static 'css/main/main.css' %}">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <! jquery 이용해야함 >
+    <script type="text/javascript" src="{% static 'js/main/gps.js' %}"></script>
+    <! gps값 >
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </head>
 <style type="text/css">
     *{
@@ -128,89 +140,232 @@ font-weight:bold;
             background-image:-ms-linear-gradient(left,#eee,#777,#eee);
             background-image:-o-linear-gradient(left,#eee,#777,#eee);
         }
-    </style>
-<body>
-    <div class="content">
-        <div class="header">
-            <h2>Covid-19 QnA</h2>
-            <hr></hr>
-        </div>
+
+</style>
+
+<body class="is-preload" style="background-color:white;">
+{% if user.username == '' %}
+<script>alert('로그인 후 이용해주세요');</script>
+<script type="text/javascript">
+
+location.href="/";
 
 
-        <div style="height:280px;">
-            <table class="board" summary="This table shows how to create responsive tables using RWD-Table-Patterns' functionality">
-                <thead>
-                    <tr class="header">
-                        <th style="width:20%;">순번</th>
-                        <th style="width:40%">제목</th>
-                        <th style="width:40%">작성일자</th>
-                    </tr>
-                </thead>
+</script>
+{% else %}
+<!-- Wrapper -->
+<div id="wrapper">
 
-                <tbody>
-                {% if board_list %}
-                    {% for data in board_list %}
-                    <tr class="{% cycle '' 'even_bgcolor' %}">
-                        <td style="text-align:center;">{{ forloop.counter }}</td>
-                        <td>
-                            <a href="{% url 'detail' data.id %}">
-                                {{ data.title }}
-                            </a>
-                        </td>
-                        <td>{{ data.pub_date|date:'Y-m-d' }}</td>
-                    </tr>
+    <!-- Header -->
+    <header id="header">
+        <h1 style="font-size:30px"><a href="/">Covid-19 Integrated Information System</a></h1>
 
-                    {% endfor %}
-                <tr>
-                        <td style=" background-color:#95A5A6;"><div style="text-align:center;"><a href="{% url 'write' %}">글쓰기</a></div></td>
-                    </tr>
-                {% else %}
-                    <tr>
-                        <td>작성된 게시글이 없습니다.</td>
-                    </tr>
-                    <tr>
-                        <td><div style="text-align:left;"><a href="{% url 'write' %}">글쓰기</a></div></td>
-                    </tr>
-                {% endif %}
-                </tbody>
 
-            </table>
-             <div style="text-align:center;">
+    </header>
+
+    <!-- Menu -->
+<!-- Menu -->
+
+    <!-- Actions -->
+
+
+    <!-- Main -->
+    <div id="main">
+
+        <article>
+            <!-- Post -->
+    <br>
+            <div class="content">
+    <div class="header">
+        <h2>Covid-19 QnA</h2>
+        <hr></hr>
+    </div>
+
+
+    <div style="height:280px;">
+        <table class="board"
+               summary="This table shows how to create responsive tables using RWD-Table-Patterns' functionality">
+            <thead>
+            <tr class="header">
+                <th style="width:20%;">순번</th>
+                <th style="width:40%">제목</th>
+                <th style="width:40%">작성일자</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% if board_list %}
+            {% for data in board_list %}
+            <tr class="{% cycle '' 'even_bgcolor' %}">
+                <td style="text-align:center;">{{ forloop.counter }}</td>
+                <td>
+                    <a href="{% url 'detail' data.id %}">
+                        {{ data.title }}
+                    </a>
+                </td>
+                <td>{{ data.pub_date|date:'Y-m-d' }}</td>
+            </tr>
+
+            {% endfor %}
+            <tr>
+                <td style=" background-color:#95A5A6;">
+                    <div style="text-align:center;"><a href="{% url 'write' %}">글쓰기</a></div>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td>작성된 게시글이 없습니다.</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="text-align:left;"><a href="{% url 'write' %}">글쓰기</a></div>
+                </td>
+            </tr>
+            {% endif %}
+            </tbody>
+
+        </table>
+        <div style="text-align:center;">
             <div class="pagination">
 
                 <div style="width:35%; margin: 5px;">
-                {% if board_list.has_previous %}
-                  <button><a class="abutton" href="?page=1">맨 앞으로</a></button>
+                    {% if board_list.has_previous %}
+                    <button><a class="abutton" href="?page=1">맨 앞으로</a></button>
                     <button><a class="abutton" href="?page={{ board_list.previous_page_number }}">이전</a></button>
-                {% endif %}
+                    {% endif %}
                 </div>
 
                 <div style="width:30%; margin: 5px;">
-                {% for page in board_list.paginator.page_range %}
+                    {% for page in board_list.paginator.page_range %}
                     {% if page >= board_list.number|add:-2 and page <= board_list.number|add:2 %}
                     <span class="{% if page == board_list.number %}current{% endif %}">
                         <a href="?page={{ page }}" style="font-size:20px;">{{ page}}</a>
                     </span>
                     {% elif page >= board_list.number|add:-3 and page <= board_list.number|add:3 %}
-                        ..
+                    ..
                     {% endif %}
-                {% endfor %}
+                    {% endfor %}
                 </div>
 
                 <div style="width:35%; margin: 5px;">
-                {% if board_list.has_next %}
+                    {% if board_list.has_next %}
                     <button><a class="abutton" href="?page={{ board_list.next_page_number }}">다음</a></button>
                     <button><a class="abutton" href="?page={{ board_list.paginator.num_pages }}">맨 뒤로</a></button>
-                {% endif %}
+                    {% endif %}
                 </div>
 
             </div>
 
         </div>
-        </div>
+    </div>
+
+    <!-- Pagination -->
+
+</div>
+
+
+
+        </article>
+
 
         <!-- Pagination -->
 
+
     </div>
+
+    <!-- Sidebar -->
+    <section id="sidebar">
+
+        <!-- Intro -->
+        <section id="intro">
+            <header>
+                <h2>Covid-19 Integrated Information System</h2>
+                <p>코로나 통합정보시스템 ... ~~</p>
+            </header>
+        </section>
+
+        <!-- Mini Posts -->
+        <section>
+			<ul>
+            <a href="/" class="btn">확진자</a></br>
+            <a href="/news_page" class="btn">지역 뉴스</a></br>
+            <a href="/gnews_page" class="btn">정부 뉴스</a></br>
+            <a href="/pandj_page" class="btn">확진경로 재난문자</a></br>
+            <a href="/calendar" class="btn">캘린더</a></br>
+				<a href="/index1" class="btn">QnA 게시판</a></br>
+            </ul>
+        </section>
+
+        <!-- Posts List -->
+        <!--							<section>-->
+        <!--								<ul class="posts">-->
+        <!--									<li>-->
+        <!--										<article>-->
+        <!--											<header>-->
+        <!--												<h3><a href="single.html">뉴스1</a></h3>-->
+        <!--												<time class="published" datetime="2015-10-20">October 20, 2015</time>-->
+        <!--											</header>-->
+        <!--										</article>-->
+        <!--									</li>-->
+        <!--									<li>-->
+        <!--										<article>-->
+        <!--											<header>-->
+        <!--												<h3><a href="single.html">뉴스2</a></h3>-->
+        <!--												<time class="published" datetime="2015-10-15">October 15, 2015</time>-->
+        <!--											</header>-->
+        <!--										</article>-->
+        <!--									</li>-->
+        <!--									<li>-->
+        <!--										<article>-->
+        <!--											<header>-->
+        <!--												<h3><a href="single.html">뉴스3</a></h3>-->
+        <!--												<time class="published" datetime="2015-10-10">October 10, 2015</time>-->
+        <!--											</header>-->
+        <!--										</article>-->
+        <!--									</li>-->
+        <!--									<li>-->
+        <!--										<article>-->
+        <!--											<header>-->
+        <!--												<h3><a href="single.html">뉴스4</a></h3>-->
+        <!--												<time class="published" datetime="2015-10-08">October 8, 2015</time>-->
+        <!--											</header>-->
+        <!--										</article>-->
+        <!--									</li>-->
+        <!--									<li>-->
+        <!--										<article>-->
+        <!--											<header>-->
+        <!--												<h3><a href="single.html">뉴스5</a></h3>-->
+        <!--												<time class="published" datetime="2015-10-06">October 7, 2015</time>-->
+        <!--											</header>-->
+        <!--										</article>-->
+        <!--									</li>-->
+        <!--								</ul>-->
+        <!--							</section>-->
+
+        <!-- About -->
+        <!--							<section class="blurb">-->
+        <!--								<h2>About</h2>-->
+        <!--								<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>-->
+
+        <!--							</section>-->
+        <!-- JHB logo -->
+        <section id="JHB">
+            <a href="https://github.com/Kim-JeongUng/Corona_korea_keep-distance" target="_blank"><img src="https://user-images.githubusercontent.com/82865325/144609635-050d2e56-2d69-4e00-9930-2bec3d4c37c6.png"></a>
+        </section>
+        <!-- Footer -->
+
+    </section>
+
+</div>
+
+<!-- Scripts -->
+<script src="{% static 'js/main/breakpoints.min.js' %}"></script>
+<script src="{% static 'js/main/browser.min.js' %}"></script>
+<script src="{% static 'js/main/jquery.min.js' %}"></script>
+<script src="{% static 'js/main/main.js' %}"></script>
+<script src="{% static 'js/main/util.js' %}"></script>
+{% endif %}
+{% endblock %}
+
 </body>
 </html>
