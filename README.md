@@ -44,7 +44,7 @@
 - 팀장
 - 코로나 정보, GPS, 확진자 수 등 크롤링 및 GPS, 역지오코딩 등 API활용, 텍스트 처리
 - 코로나 확진자 수 예측 모델 개발
-- 코드 방향성 리드 및 주도
+- 코드 방향성 리드
 ### 이화준  [Mython](https://github.com/MACE001 "Mython")    
 - Django 기능 관리
 - Html페이지 구성 및 url path 전담
