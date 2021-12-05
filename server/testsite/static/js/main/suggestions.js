@@ -1,5 +1,5 @@
 let suggestions = [
-    "서울",
+     "서울",
  "서울 종로구",
  "서울 중구",
  "서울 용산구",
@@ -278,12 +278,5 @@ let suggestions = [
  "제주 제주시",
  "제주 서귀포시",
 ];
-function user_check(link, flag1){
-
-document.jumun.action = link;  //jumun.action='proc.php?id='+param1+'&pass='+param2;
-document.jumun.svc_flag.value = flag1;
-document.jumun.submit()
-
-}
 
 

@@ -21,12 +21,22 @@
         var lat = position.coords.latitude;
         var lng = position.coords.longitude;
         var url = "gps/"+lng+"/"+lat;
+        if("{{k}}" == ''){
         var result = $.get(url, function(data){
                         url = "covid_value/"+data;
                     var result = $.get(url, function(data2){
                     document.getElementById("values").innerHTML = data2;
                     });
-            });
+        });
+        }
+        else{
+        var result = $.get(url, function(data){
+                        url = "covid_value/"+"{{k}}";
+                    var result = $.get(url, function(data2){
+                    document.getElementById("values").innerHTML = data2;
+                    });
+        });
+        }
     }
     function errorCallback(){
                 document.getElementById("values").innerHTML = "서울";

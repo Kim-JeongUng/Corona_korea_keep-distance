@@ -136,7 +136,10 @@ def jenan(request,area):
     return HttpResponse(jenan_area(area))
 
 def covid_value(request,area):
-    area = area.split(' ')[1]
+    try:
+        area = area.split(' ')[1]
+    except:
+        pass
     omicron = Omicron()
     try:
         korea = CovidAll()
@@ -148,7 +151,7 @@ def covid_value(request,area):
                         <th>전국 신규 확진자</th>
                         <th>{}도 신규확진자</th>
                         <th>{} 신규확진자</th>
-                        <th>오미크론 신규 확진</th>
+                        <th>오미크론 누적 확진</th>
                         <tr>
                         <td>{}</td>
                         <td>{}</td>
@@ -172,7 +175,7 @@ def covid_value(request,area):
                         <th>전국 신규 확진자</th>
                         <th>도단위 신규확진자</th>
                         <th>현재 지역 신규확진자</th>
-                        <th>오미크론 신규 확진</th>
+                        <th>오미크론 누적 확진</th>
                         <tr>
                         <td>서버 점검중</td>
                         <td>서버 점검중</td>
@@ -190,7 +193,16 @@ def covid_value(request,area):
 
 
 def index(request):
-    return render(request,'corona/index.html')
+    context = {'find_top_danger': findTopDanger(), 'find_low_danger': findLowDanger()}
+    if request.method == 'POST':
+        k = ''
+        k = request.POST.get("loca")
+        context['k'] = k
+    else:
+        k = ''
+        context['k'] = k
+    print(context)
+    return render(request,'corona/index.html',context=context)
 
 def news_page(request):
     if request.method == 'POST':
@@ -215,8 +227,20 @@ def index2(request):
     return render(request,'corona/index2.html')
 
 def patientjenan_page(request):
-    context = {'find_top_danger': findTopDanger(),'find_low_danger' : findLowDanger() }
-    return render(request, 'corona/patientjenan_page.html', context=context)
+    if request.method == 'POST':
+        k = ''
+        k = request.POST.get("loca")
+        context = {
+            'k': k
+        }
+        return render(request, 'corona/patientjenan_page.html',context=context)
+    else:
+        k = ''
+        context = {
+            'k': k
+        }
+        return render(request, 'corona/patientjenan_page.html',context=context)
+
 
 def junsu(request):
     return HttpResponse(junsu(1))

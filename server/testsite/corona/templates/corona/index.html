@@ -25,14 +25,25 @@
     <header id="header">
         <h1 style="font-size:30px"><a href="/">Covid-19 Integrated Information System</a></h1>
 
-        <div class="search">
-
-            <input type="text" id="searchInput" placeholder="지역검색" style="margin-left: 20px; width: 200px;">
-        </div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="search-input" align="left">
+                <a href="" target="_blank" hidden></a>
+                <input type="text" name="loca" placeholder="지역 검색" style="float:center; width:200px; border:2px solid black">
+                <input type="submit" value="검색" style="width:50px; border:1px solid; pointer:cursor;">
+                <div class="autocom-box">
+                    <!-- here list are inserted from javascript -->
+                </div>
+                <div class="autocom-box">
+                    <!-- here list are inserted from javascript -->
+                </div>
+                <div class="icon"><i class="fas fa-search"></i></div>
+            </div>
+        </form>
     </header>
 
     <!-- Menu -->
-<!-- Menu -->
+    <!-- Menu -->
 
 
     <!-- Actions -->
@@ -40,20 +51,25 @@
 
     <!-- Main -->
     <div id="main">
-
         <!-- Post -->
         <article class="post">
             <header>
                 <div class="title">
                     <h2>
-                        <div id="location">
-                        </div>
+                        {% if k == ''%}
+                        <div id="location" style="display:inline"></div><div style="display:inline"> 관련 확진자</div>
+                        {% else %}
+                        {{k}}<div style="display:inline"> 관련 확진자</div>
+                        {% endif %}
                     </h2>
                 </div>
 
             </header>
 
-            {% include "./junsu.html" %}
+            <details>
+                <summary>준수 수칙</summary>
+                <p>{% include "./junsu.html" %}</p>
+            </details>
             <footer>
 
             </footer>
@@ -61,14 +77,53 @@
 
         <article>
             <!-- Post -->
-            {% include "./covidcount.html" %}
+            {% include "./covidcount.html" %}</br></br>
+            <table border="1">
+                <th><h1>코로나 감염 예측 그래프</h1></th>
+            </table>
             {% include "./CovidPatientPrediction.html" %}
-			<div align="center">
-            <p>현재 제공하고 있는 통계 수치와 그래프는 질병관리 본부의 정보를 토대로 취합하여 업데이트 됩니다. </br>
-                민간이 취합한 내용이기에 수치의 정확성에 대해 책임질 수 없습니다. </br>
-                공식적인 근거 자료로 사용하기 부적절합니다.</p>
-            <!-- Post -->
-				</div>
+            <div align="center">
+                <p>현재 제공하고 있는 통계 수치와 그래프는 질병관리 본부의 정보를 토대로 취합하여 업데이트 됩니다. </br>
+                    민간이 취합한 내용이기에 수치의 정확성에 대해 책임질 수 없습니다. </br>
+                    공식적인 근거 자료로 사용하기 부적절합니다.</p>
+                <table border="1">
+                    <th><h1>인구수 대비 감염률</h1></th>
+                </table>
+                <div style="width:49%;float:left;">
+                    <table border="1">
+                        <th>상대적 위험 지역</th>
+                        <tr>
+                            <td>{{ find_top_danger.0 }}<td>
+                        </tr>
+                        <tr>
+                            <td>{{ find_top_danger.1 }}<td>
+                        </tr>
+                        <tr>
+                            <td>{{ find_top_danger.2 }}<td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="width:49%;float:right;">
+                    <table border="1">
+                        <th>상대적 안전 지역</th>
+
+                        <tr>
+                            <td>{{ find_low_danger.0 }}<td>
+                        </tr>
+
+                        <tr>
+                            <td>{{ find_low_danger.1 }}<td>
+                        </tr>
+
+                        <tr>
+                            <td>{{ find_low_danger.2 }}<td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <!-- Post -->
+            </div>
 
 
         </article>
@@ -86,81 +141,25 @@
         <section id="intro">
             <header>
                 <h2>Covid-19 Integrated Information System</h2>
-                <p>코로나 통합정보시스템 ... ~~</p>
+                <p>코로나 통합정보시스템</p>
             </header>
         </section>
 
         <!-- Mini Posts -->
         <section>
-			<ul>
+            <ul>
                 <a href="/lg" class="btn">Login</a></br>
-            <a href="/" class="btn">확진자</a></br>
-            <a href="/news_page" class="btn">지역 뉴스</a></br>
-            <a href="/gnews_page" class="btn">정부 뉴스</a></br>
-            <a href="/pandj_page" class="btn">확진경로 재난문자</a></br>
-            <a href="/calendar" class="btn">캘린더</a></br>
-				<a href="/index1" class="btn">QnA 게시판</a></br>
+                <a href="/" class="btn">확진자</a></br>
+                <a href="/news_page" class="btn">지역 뉴스</a></br>
+                <a href="/gnews_page" class="btn">정부 뉴스</a></br>
+                <a href="/pandj_page" class="btn">확진경로 재난문자</a></br>
+                <a href="/calendar" class="btn">캘린더</a></br>
+                <a href="/index1" class="btn">QnA 게시판</a></br>
             </ul>
+            <section id="JHB">
+                <a href="https://github.com/Kim-JeongUng/Corona_korea_keep-distance" target="_blank"><img src="https://user-images.githubusercontent.com/82865325/144739031-38332cbd-64c3-4723-962a-8235f5c10b00.png"></a>
+            </section>
         </section>
-
-        <!-- Posts List -->
-        <!--							<section>-->
-        <!--								<ul class="posts">-->
-        <!--									<li>-->
-        <!--										<article>-->
-        <!--											<header>-->
-        <!--												<h3><a href="single.html">뉴스1</a></h3>-->
-        <!--												<time class="published" datetime="2015-10-20">October 20, 2015</time>-->
-        <!--											</header>-->
-        <!--										</article>-->
-        <!--									</li>-->
-        <!--									<li>-->
-        <!--										<article>-->
-        <!--											<header>-->
-        <!--												<h3><a href="single.html">뉴스2</a></h3>-->
-        <!--												<time class="published" datetime="2015-10-15">October 15, 2015</time>-->
-        <!--											</header>-->
-        <!--										</article>-->
-        <!--									</li>-->
-        <!--									<li>-->
-        <!--										<article>-->
-        <!--											<header>-->
-        <!--												<h3><a href="single.html">뉴스3</a></h3>-->
-        <!--												<time class="published" datetime="2015-10-10">October 10, 2015</time>-->
-        <!--											</header>-->
-        <!--										</article>-->
-        <!--									</li>-->
-        <!--									<li>-->
-        <!--										<article>-->
-        <!--											<header>-->
-        <!--												<h3><a href="single.html">뉴스4</a></h3>-->
-        <!--												<time class="published" datetime="2015-10-08">October 8, 2015</time>-->
-        <!--											</header>-->
-        <!--										</article>-->
-        <!--									</li>-->
-        <!--									<li>-->
-        <!--										<article>-->
-        <!--											<header>-->
-        <!--												<h3><a href="single.html">뉴스5</a></h3>-->
-        <!--												<time class="published" datetime="2015-10-06">October 7, 2015</time>-->
-        <!--											</header>-->
-        <!--										</article>-->
-        <!--									</li>-->
-        <!--								</ul>-->
-        <!--							</section>-->
-
-        <!-- About -->
-        <!--							<section class="blurb">-->
-        <!--								<h2>About</h2>-->
-        <!--								<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>-->
-
-        <!--							</section>-->
-        <!-- JHB logo -->
-        <section id="JHB">
-            <a href="https://github.com/Kim-JeongUng/Corona_korea_keep-distance" target="_blank"><img src="https://user-images.githubusercontent.com/82865325/144609635-050d2e56-2d69-4e00-9930-2bec3d4c37c6.png"></a>
-        </section>
-        <!-- Footer -->
-
     </section>
 
 </div>
@@ -178,14 +177,25 @@
     <header id="header">
         <h1 style="font-size:30px"><a href="/">Covid-19 Integrated Information System</a></h1>
 
-        <div class="search">
-            <strong>{{user.username}}님 환영합니다.</strong>
-
-        </div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="search-input" align="left">
+                <a href="" target="_blank" hidden></a>
+                <input type="text" name="loca" placeholder="지역 검색" style="float:center; width:200px; border:2px solid black">
+                <input type="submit" value="검색" style="width:50px; border:1px solid; pointer:cursor;">
+                <div class="autocom-box">
+                    <!-- here list are inserted from javascript -->
+                </div>
+                <div class="autocom-box">
+                    <!-- here list are inserted from javascript -->
+                </div>
+                <div class="icon"><i class="fas fa-search"></i></div>
+            </div>
+        </form>
     </header>
 
     <!-- Menu -->
-<!-- Menu -->
+    <!-- Menu -->
 
 
     <!-- Actions -->
@@ -199,14 +209,19 @@
             <header>
                 <div class="title">
                     <h2>
-                        <div id="location">
-                        </div>
+                        {% if k == ''%}
+                        <div id="location" style="display:inline"></div><div style="display:inline"> 관련 확진자</h1>
+                        {% else %}
+                        {{k}}
+                        {% endif %}
                     </h2>
                 </div>
-
             </header>
+            <details>
+                <summary>방역 수칙 열기</summary>
+                <p>{% include "./junsu.html" %}</p>
+            </details>
 
-            {% include "./junsu.html" %}
             <footer>
 
             </footer>
@@ -214,14 +229,53 @@
 
         <article>
             <!-- Post -->
-            {% include "./covidcount.html" %}
-            {% include "./CovidPatientPrediction.html" %}
-			<div align="center">
-            <p>현재 제공하고 있는 통계 수치와 그래프는 질병관리 본부의 정보를 토대로 취합하여 업데이트 됩니다. </br>
-                민간이 취합한 내용이기에 수치의 정확성에 대해 책임질 수 없습니다. </br>
-                공식적인 근거 자료로 사용하기 부적절합니다.</p>
-            <!-- Post -->
-				</div>
+            {% include "./covidcount.html" %}</br></br>
+            <table border="1">
+                <th><h1>코로나 감염 예측 그래프</h1></th>
+            </table>
+            <div>{% include "./CovidPatientPrediction.html" %}</div>
+
+            <div align="center">
+                <p>현재 제공하고 있는 통계 수치와 그래프는 질병관리 본부의 정보를 토대로 취합하여 업데이트 됩니다. </br>
+                    민간이 취합한 내용이기에 수치의 정확성에 대해 책임질 수 없습니다. </br>
+                    공식적인 근거 자료로 사용하기 부적절합니다.</p>
+                <!-- Post -->
+            </div>
+            <table border="1">
+                <th><h1>인구수 대비 감염률</h1></th>
+            </table>
+            <div style="width:49%;float:left;">
+                <table border="1">
+                    <th>상대적 위험 지역</th>
+                    <tr>
+                        <td>{{ find_top_danger.0 }}<td>
+                    </tr>
+                    <tr>
+                        <td>{{ find_top_danger.1 }}<td>
+                    </tr>
+                    <tr>
+                        <td>{{ find_top_danger.2 }}<td>
+                    </tr>
+                </table>
+            </div>
+            <div style="width:49%;float:right;">
+                <table border="1">
+                    <th>상대적 안전 지역</th>
+
+                    <tr>
+                        <td>{{ find_low_danger.0 }}<td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ find_low_danger.1 }}<td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ find_low_danger.2 }}<td>
+                    </tr>
+                </table>
+            </div>
+
 
 
         </article>
@@ -239,81 +293,27 @@
         <section id="intro">
             <header>
                 <h2>Covid-19 Integrated Information System</h2>
-                <p>코로나 통합정보시스템 ... ~~</p>
+                <p>코로나 통합정보시스템</p>
             </header>
         </section>
 
         <!-- Mini Posts -->
         <section>
-			<ul>
-                  <a href="/logout" class="btn">Logout</a></br>
-            <a href="/" class="btn">확진자</a></br>
-            <a href="/news_page" class="btn">지역 뉴스</a></br>
-            <a href="/gnews_page" class="btn">정부 뉴스</a></br>
-            <a href="/pandj_page" class="btn">확진경로 재난문자</a></br>
-            <a href="/calendar" class="btn">캘린더</a></br>
+            <ul>
+                <a href="/logout" class="btn">Logout</a></br>
+                <a href="/" class="btn">확진자</a></br>
+                <a href="/news_page" class="btn">지역 뉴스</a></br>
+                <a href="/gnews_page" class="btn">정부 뉴스</a></br>
+                <a href="/pandj_page" class="btn">확진경로 재난문자</a></br>
+                <a href="/calendar" class="btn">캘린더</a></br>
                 <a href="/index1" class="btn">QnA 게시판</a></br>
 
             </ul>
+            <section id="JHB">
+                <a href="https://github.com/Kim-JeongUng/Corona_korea_keep-distance" target="_blank"><img src="https://user-images.githubusercontent.com/82865325/144739031-38332cbd-64c3-4723-962a-8235f5c10b00.png"></a>
+            </section>
         </section>
 
-        <!-- Posts List -->
-        <!--							<section>-->
-        <!--								<ul class="posts">-->
-        <!--									<li>-->
-        <!--										<article>-->
-        <!--											<header>-->
-        <!--												<h3><a href="single.html">뉴스1</a></h3>-->
-        <!--												<time class="published" datetime="2015-10-20">October 20, 2015</time>-->
-        <!--											</header>-->
-        <!--										</article>-->
-        <!--									</li>-->
-        <!--									<li>-->
-        <!--										<article>-->
-        <!--											<header>-->
-        <!--												<h3><a href="single.html">뉴스2</a></h3>-->
-        <!--												<time class="published" datetime="2015-10-15">October 15, 2015</time>-->
-        <!--											</header>-->
-        <!--										</article>-->
-        <!--									</li>-->
-        <!--									<li>-->
-        <!--										<article>-->
-        <!--											<header>-->
-        <!--												<h3><a href="single.html">뉴스3</a></h3>-->
-        <!--												<time class="published" datetime="2015-10-10">October 10, 2015</time>-->
-        <!--											</header>-->
-        <!--										</article>-->
-        <!--									</li>-->
-        <!--									<li>-->
-        <!--										<article>-->
-        <!--											<header>-->
-        <!--												<h3><a href="single.html">뉴스4</a></h3>-->
-        <!--												<time class="published" datetime="2015-10-08">October 8, 2015</time>-->
-        <!--											</header>-->
-        <!--										</article>-->
-        <!--									</li>-->
-        <!--									<li>-->
-        <!--										<article>-->
-        <!--											<header>-->
-        <!--												<h3><a href="single.html">뉴스5</a></h3>-->
-        <!--												<time class="published" datetime="2015-10-06">October 7, 2015</time>-->
-        <!--											</header>-->
-        <!--										</article>-->
-        <!--									</li>-->
-        <!--								</ul>-->
-        <!--							</section>-->
-
-        <!-- About -->
-        <!--							<section class="blurb">-->
-        <!--								<h2>About</h2>-->
-        <!--								<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>-->
-
-        <!--							</section>-->
-        <!-- JHB logo -->
-        <section id="JHB">
-            <a href="https://github.com/Kim-JeongUng/Corona_korea_keep-distance" target="_blank"><img src="https://user-images.githubusercontent.com/82865325/144609635-050d2e56-2d69-4e00-9930-2bec3d4c37c6.png"></a>
-        </section>
-        <!-- Footer -->
 
     </section>
 

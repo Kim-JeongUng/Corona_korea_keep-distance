@@ -15,7 +15,7 @@ function successCallback_gps(position){
         });
 }
 function errorCallback(){
-                document.getElementById("location").innerHTML = "서울";
+                document.getElementById("news_list").innerHTML = "서울";
 }
 
 

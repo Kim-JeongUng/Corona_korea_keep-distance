@@ -66,9 +66,7 @@ def CovidArea(area):
         i -= 1
         if dd['response']['body']['items']['item'][i]['gubun'].find(dov) != -1:
             Covid.append(dd['response']['body']['items']['item'][i]['incDec'])
-            # 시 도별 누적 확진자가 궁금한가?
             Covid.append(dd['response']['body']['items']['item'][i]['defCnt'])
-    print(Covid,dov)
     return Covid,dov
 
 today = datetime.datetime.now()

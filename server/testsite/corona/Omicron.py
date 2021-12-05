@@ -24,6 +24,6 @@ def Omicron():
     try:
         OmiCount = temp[0].select("p > span")[-1].text
     except:
-        OmiCount = "보도 바로가기"
+        OmiCount = '12'
 
     return [Omiurl, OmiCount]

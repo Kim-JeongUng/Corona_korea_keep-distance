@@ -1,37 +1,25 @@
 # 정부 뉴스
+import openpyxl
+import os
+BASE_DIR = os.getcwd()
+import os
 
-import requests
-from bs4 import BeautifulSoup
-
+BASE_DIR = os.getcwd()
 def gnews():
-    news_num = 10#뉴스 개수 default 10
-    news_url = 'http://www.whosaeng.com/search.html?submit=submit&search=%EB%B0%A9%EC%97%AD%EB%8B%B9%EA%B5%AD&imageField3.x=0&imageField3.y=0&search_and=2&search_exec=all&search_section=sc1&news_order=1&search_start_day=&search_end_day=20211108'
+    wb = openpyxl.load_workbook(str(BASE_DIR)+"\\corona\\gnews.xlsx",data_only=True)
+    result =""
+    cnt = 0
 
-    req = requests.get(news_url)
-    soup = BeautifulSoup(req.text, 'html.parser')
+    for i in wb.active.rows:
+        if cnt > 0:
+            result += ("<article class='mini-post'><header>")
+            result += ('<a href="{}"><img src="{}" alt="" />'.format((i[3].value),i[0].value))
+            result += ("<h3>{}<h3>".format(i[1].value))
+            result += ("<h3>{}<h3></a>".format(i[2].value))
 
-    # 제목
-    title= soup.select("#search_result > div.search_result_list > div > dl > dt")
-    # 내용
-    msg =  soup.select("#search_result > div.search_result_list > div> dl > dd.sbody > a")
-    # 기사 링크
-    url = []
-    for m in msg:
-        url.append("http://www.whosaeng.com"+m.get("href"))
+            result += ("</header></article>")
+        cnt += 1
+    if cnt == 0:
+        result+=("<h3>None<h3> \n")
 
-    newslist = []
-    for x in range(0, news_num):
-        newslist.append("""
-        <article class="post">
-        <header>
-            <div class="meta">
-            <a href="#"><img src="https://user-images.githubusercontent.com/82865325/143685603-f168ff67-6f3d-425b-84d3-8b93d2b6a69a.png" alt="" /></a>
-									</div>
-									<div class="title">
-										<h3><a href="{:}">{:}</a></h3>
-									</div>
-        </header>
-        </article>
-            """.format(url[x],title[x].text.replace('\xa0','')))
-
-    return newslist
+    return result
